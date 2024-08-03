@@ -1,0 +1,11 @@
+django
+streamlit
+langchain
+langchain_community
+langchain_core
+torch
+pandas
+datasets
+transformers
+langchain_chroma
+langchain_huggingface
