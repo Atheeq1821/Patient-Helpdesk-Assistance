@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk assistance</title>
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                
+                <form action="{% url 'signup' %}" id="sign-up-form" method="POST">
+                    {% csrf_token %}
+                    <h1 class="block-h1">Insurer Portal</h1>
+                    <div class="scroll-div">
+                        <div class="infield">
+                            <input type="text" placeholder="Enter Your Name" name="fullname"/>
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="email" placeholder="Email" name="email" />
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="password" placeholder="Password" name='pass'/>
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <select name="options" class="gender">
+                                <option value="" disabled selected>Choose a gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="number" placeholder="Enter your age" name='age'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="tel" placeholder="Contact number" name='phone'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="text" placeholder="Pincode" name='pincode'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="text" placeholder="Policy Name" name='policyname'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="text" placeholder="Plan Type" name='policytype'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="date" placeholder="Policy Start Date" name='startdate'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="number" placeholder="Duration of the Plan" name='duration'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="number" placeholder="Monthly Premium" name='premium'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
+                            <input type="number" placeholder="Total Insurance Amount" name='amt'>                        
+                            <label></label>
+                        </div>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="{% url 'signin' %}" method="POST">
+                    {% csrf_token %}
+                    <h1>Member Sign in</h1>
+                    <div class="infield">
+                        <input type="email" placeholder="Email" name="email" />
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="password" placeholder="Password" name='password' />
+                        <label></label>
+                    </div>
+                    <a href="#" class="forgot">Forgot your password?</a>
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container" id="overlayCon">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button>Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button>Sign Up</button>
+                    </div>
+                </div>
+                <button id="overlayBtn"></button>
+            </div>
+        </div>
+    
+        <!-- js code -->
+        <script>
+            const container = document.getElementById('container');
+            const overlaycon = document.getElementById('overlaycon');
+            const overlayBtn = document.getElementById('overlayBtn');
+            overlayBtn.addEventListener('click', () => {
+                container.classList.toggle('right-panel-active');
+                overlayBtn.classList.remove('btnScaled');
+                window.requestAnimationFrame(() => {
+                    overlayBtn.classList.add('btnSCaled');
+                })
+            });
+        </script>
+    
+</body>
+
+</html>
