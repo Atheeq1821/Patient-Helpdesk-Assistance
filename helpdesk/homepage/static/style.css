@@ -13,7 +13,10 @@
 
 body {
     height: 100vh;
-    background: #f6f5f7;
+    background: url('./imgs/bg.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: grid;
     place-content: center;
     font-family: 'Poppins', sans-serif;
@@ -138,6 +141,7 @@ button ,.fbtn{
     letter-spacing: 1px;
     text-transform: uppercase;
     background-color: #243B55;
+    cursor: pointer;
 }
 
 .form-container button {
@@ -146,7 +150,7 @@ button ,.fbtn{
 }
 
 .form-container button:hover {
-    background: #961c1c;
+    background: white;
     color: var(--grad-clr1);
 }
 
@@ -250,6 +254,10 @@ p {
     opacity: 1;
     z-index: 5;
     animation: show 0.6px;
+}
+#overlayBtn:hover{
+    color: red;
+    
 }
 
 @keyframes show {

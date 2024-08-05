@@ -20,7 +20,7 @@
                 
                 <form action="{% url 'signup' %}" id="sign-up-form" method="POST">
                     {% csrf_token %}
-                    <h1 class="block-h1">Insurer Portal</h1>
+                    <h1 class="block-h1">Member Signup</h1>
                     <div class="scroll-div">
                         <div class="infield">
                             <input type="text" placeholder="Enter Your Name" name="fullname"/>
@@ -55,6 +55,10 @@
                             <label></label>
                         </div>
                         <div class="infield">
+                            <input type="text" placeholder="Insurer Name" name='insurer'>                        
+                            <label></label>
+                        </div>
+                        <div class="infield">
                             <input type="text" placeholder="Policy Name" name='policyname'>                        
                             <label></label>
                         </div>
@@ -78,6 +82,9 @@
                             <input type="number" placeholder="Total Insurance Amount" name='amt'>                        
                             <label></label>
                         </div>
+                        {% if signup_error_message %}
+                        <p style="color: red;" class="forgot">{{ signup_error_message }}</p>
+                    {% endif %}
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>
@@ -94,9 +101,12 @@
                         <input type="password" placeholder="Password" name='password' />
                         <label></label>
                     </div>
-                    <a href="#" class="forgot">Forgot your password?</a>
+                    {% if signin_error_message %}
+                        <p style="color: red;" class="forgot">{{ signin_error_message }}</p>
+                    {% endif %}
                     <button type="submit">Sign In</button>
                 </form>
+                
             </div>
             <div class="overlay-container" id="overlayCon">
                 <div class="overlay">
@@ -106,7 +116,7 @@
                         <button>Sign In</button>
                     </div>
                     <div class="overlay-panel overlay-right">
-                        <h1>Hello, Friend!</h1>
+                        <h1>Hello, There!</h1>
                         <p>Enter your personal details and start journey with us</p>
                         <button>Sign Up</button>
                     </div>

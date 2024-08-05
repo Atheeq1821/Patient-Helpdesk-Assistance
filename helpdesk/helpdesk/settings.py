@@ -25,10 +25,7 @@ SECRET_KEY = "django-insecure-gu^ay2^zv!70yc!87-oyykduoa1&n6w1ez_6w05u&6(j!!o-u_
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -37,6 +34,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "homepage",
+    "assistant"
 ]
 
 MIDDLEWARE = [
@@ -52,10 +50,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = "helpdesk.urls"
 
 
-AUTHENTICATION_BACKENDS = [
-    'homepage.backends.EmailBackend',  
-    'django.contrib.auth.backends.ModelBackend',  
-]
+# AUTHENTICATION_BACKENDS = [
+#     'homepage.backends.EmailBackend',  
+#     'django.contrib.auth.backends.ModelBackend',  
+# ]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -123,6 +121,7 @@ import os
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'homepage/static'),
+    os.path.join(BASE_DIR, 'assistant/static'),
 ]
 
 

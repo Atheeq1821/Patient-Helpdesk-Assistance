@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,500;0,600;0,700;0,800;0,900;1,100;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Helpdesk</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <section class="main">
+        <section class="hero">
+            <nav id="navbar">
+                <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
+                <div class="nav-cont"> <a href="">Claim Denial Assistance</a></div>
+                <div class="nav-cont"><a href="{% url 'network_hospitals' %}">Network Hospitals</a></div>
+                <ul>
+                    <li>login</li>
+                </ul>
+            </nav>
+            <h1 class="welcome" >Welcome <span id="name_class">{{ name }}</span><span class="next-line" id="t1"></span>
+                <span class="next-line" id="t2"></span>
+            </h1>
+            <div class="centerdiv">
+                <h1 class="title">PATIENT HELPDESK ASSISTANT</h1>
+                <a href="#overview-t" id="learn-more">Learn More</a>
+            </div>
+        </section>
+    <section class="overview" id="navigate">
+        <h1 id="overview-t">POLICY OVERVIEW</h1>
+        <div class="overview-c">
+            <div class="ov-left">
+                <h4>Policy Name :</h4>
+                <h4>Policy Provider :</h4>
+                <h4>Policy Duration:</h4>
+                <h4>Premium Monthly Paid:</h4>
+            </div>
+            <div class="ov-right">
+                <h4>{{ policyname }}</h4>
+                <h4>{{ provider }}</h4>
+                <h4>{{ duration }}</h4>
+                <h4>{{ premium }}</h4>
+            </div>
+        </div>
+        <div class="summary">
+            <h4>Policy Summary</h4>
+            <p>Your health has always been our top priority! We at HDFC ERGO take privilege to launch our new health insurance plan ,
+                 my:health Suraksha, which aims at giving you a 360 degree protection against soaring medical expenses. 
+                 Designed with a robust thought and a strong base coverage, my:health Suraksha is a delight for individual, 
+                 families and senior citizens looking for the right health cover ranging from 3 lacs to 5 lacs.
+
+            </p>
+        </div>
+    </section>
+    <section class="imp-sect">
+        <h3>Features of your policy</h3>
+        <div class="imp-container">
+            <div class="imp-element">
+                <h5 id="imp-title">No room rent capping</h5>
+                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
+            </div>
+            <div class="imp-element">
+                <h5 id="imp-title">No room rent capping</h5>
+                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
+            </div>
+            <div class="imp-element">
+                <h5 id="imp-title">No room rent capping</h5>
+                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="network-hospitals">
+        <h2>Network Hospitals near you</h2>
+        <table>
+            <tr>
+                <th>Hospital Name</th>
+                <th>City</th>
+                <th>Address</th>
+            </tr>
+            {% for item in hospitals %}
+                <tr>
+                    <td>{{item.0}}</td>
+                    <td>{{item.1}}</td>
+                    <td>{{item.2}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'network_hospitals' %}" class="network-a"> Find more network hospitals</a>
+    </section>
+    <section class="chat-section">
+        <div class="chat-container">
+            <div class="chat-img">
+
+            </div>
+            <div class="chat-cont">
+                <h5 class="chat-title">
+                    Know Your Coverage Inside Out With Our AI
+                </h5>
+                <p class="chat-p">--Easily access detailed information about your policy.</p>
+                <p class="chat-p">--Get all the benefit details you need before making a claim.</p>
+                <p class="chat-p">--Ask our assistant your doubts about the claim process.</p>
+                <div class="chat-a">
+                    <a href="{% url 'assistant:assistant' %}" id="prehos">Pre Hospitalization</a>
+                    <a href="" id="posthos">Post Hospitalization</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'home.js' %}"></script>
+</body>
+</html>

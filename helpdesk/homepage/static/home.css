@@ -1,0 +1,310 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    background: url('./imgs/bg.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#name_class{
+    color: #6038ff;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    
+}
+.next-line{
+    display: block;
+}
+.welcome,.nav-cont{
+    font-weight: normal;
+}
+.nav-cont a{
+    font-size: 20px;
+    padding: 9px 12px;
+    border-radius: 5px;
+    transition: color 0.3s;
+    transition: background-color 0.5s;
+    color: #1f1f20;
+}
+.nav-cont a:hover{
+    background-color: #6038ff;
+    color: white;
+}
+
+    nav{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        padding: 30px 40px 30px 40px;
+        justify-content: space-between;
+        transition: background-color 0.3s; 
+        z-index: 1000;
+    }
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(8px);
+}
+
+.cts img{
+    width: 141px;
+}
+
+.welcome{
+    font-size: 40px;
+    margin: 0px auto 0px 90px;
+    padding-top: 10%;
+    height: 45%;
+}
+
+
+.hero{
+    height: 100vh;
+}
+.centerdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    font-weight: bolder;
+    font-size: 60px;
+    text-align: center;
+}
+
+#learn-more ,.network-a{
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 9px 30px;
+    border-radius: 5px;
+    transition: color 0.3s;
+    transition: background-color 0.5s;
+    border: 1px solid #6038ff;
+    color: #6038ff;
+
+}
+#learn-more:hover{
+    color: white;
+    background-color: #6038ff;
+}
+
+
+
+
+/* OVErview page */
+
+.overview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#overview-t{
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: #4e1f4c;
+}
+
+
+
+.overview-c{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    color: #6038ff;
+    width: 55%;
+}
+h4{
+    line-height: 60px;
+    font-weight: 400;
+}
+.ov-left{
+    text-align: right;
+    color: #1f1f20;
+}
+.ov-right{
+    text-align: left;
+}
+.summary{
+    margin-top: 50px;
+}
+.summary h4{
+    font-size: 35px;
+}
+.summary p{
+    margin-top: 20px;
+    color: #6038ff;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: justify;
+}
+
+
+
+/* Network hospitals */
+
+
+.network-hospitals{
+    width: 80%;
+    margin:0px 10%;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.network-hospitals h2{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 7px;
+    color: #4e1f4c;
+}
+table{
+    width: 100%;
+    margin-top: 30px;
+}
+tr{
+
+}
+td,th{
+    font-size: 20px;
+    padding: 10px 50px;
+    border: 1px solid #4e1f4c;
+    color: #1f1f20;
+}
+th{
+    background: #6038ff63;
+    color: white;
+}
+
+.network-a{
+    margin-top: 40px;
+}
+.network-a:hover{
+    color: white;
+    background-color: #6038ff;
+}
+
+
+
+/* Important section */
+
+
+.imp-sect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 5%;
+    margin-top: 120px;
+}
+.imp-sect h3{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: #4e1f4c;
+}
+.imp-container{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.imp-element{
+    max-width: 30%;
+    padding: 30px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px #070707;
+    transition: all  0.5s;
+}
+.imp-element:hover{
+    box-shadow: 10px 10px 10px #070707;
+}
+
+
+#imp-title{
+    font-size: 30px;
+    color: #4e1f4c;
+    
+}
+#imp-cont{
+    margin-top: 10px;
+   font-size: 18px;
+   text-align: justify;
+   color: #1f1f20;
+}
+
+
+/* chat ai container */
+
+.chat-section{
+    margin-top: 120px;
+    margin-bottom: 100px;
+}
+.chat-container{
+    width: 80%;
+    margin: 0px 10%;
+    display: flex;
+    justify-content: center;
+    color: white;
+
+}
+.chat-img{
+    width: 500px;
+
+    background-image: url('./imgs/chat.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.chat-cont{
+    padding: 50px 30px 80px 30px;
+    background-color: #6038ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chat-title{
+    font-size: 30px;
+}
+.chat-p{
+    margin-top: 25px;
+    font-size: 25px;
+}
+#prehos,#posthos{
+    font-size: 20px;
+    padding: 9px 30px; 
+    border-radius: 5px;
+    transition: color 0.3s;
+    transition: background-color 0.5s;
+    border: 1px solid #6038ff;
+    color: #6038ff;
+    background-color: white;
+    width: max-content;
+}
+#prehos:hover,#posthos:hover{
+    color: white;
+    border: 1px solid white;
+    background-color: #6038ff;
+}
+.chat-a{
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}

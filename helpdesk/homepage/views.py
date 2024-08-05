@@ -5,8 +5,14 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from .models import Profile
 from django.utils.dateparse import parse_date
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from helpdesk.utils import Hospitals
+import json
 # Create your views here.
-def home(request):
+
+
+def index(request):
     return render(request,"index.html")
 
 
@@ -14,22 +20,21 @@ def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        print(email)
-        # Authenticate the user using email
-        user = authenticate(request, email=email, password=password)
-        print(user)
+        try:
+            user = User.objects.get(email=email)
+            user = authenticate(request, username=user.username, password=password)
+        except User.DoesNotExist:
+            user = None
         if user is not None:
-            # If authentication is successful, log the user in
-            print("success")
             login(request, user)
-            messages.error(request, 'success.')
-            return redirect('home')  # Redirect to the home page or another page
+            return redirect('home')
         else:
-            # If authentication fails, show an error message
-            messages.error(request, 'Invalid email or password')
-            return redirect('signin')  # Redirect back to the sign-in page
+            context = {
+                'signin_error_message': 'Invalid email or password.'
+            }
+            return render(request, 'index.html', context)
 
-    return redirect('home')
+    return redirect('index')
 
 
 def signup(request):
@@ -41,15 +46,17 @@ def signup(request):
         gender=request.POST.get('options')
         phone=request.POST.get('phone')
         pincode=request.POST.get('pincode')
+        insurer=request.POST.get('insurer')
         policyname=request.POST.get('policyname')
         policytype=request.POST.get('policytype')
         startdate=request.POST.get('startdate')
         duration=request.POST.get('duration')
         premium=request.POST.get('premium')
         amt=request.POST.get('amt')
-        if Profile.objects.filter(email=email).exists():
-            messages.error(request, 'Email already exists.')
-            return redirect('home')
+        if Profile.objects.filter(user__email=email).exists():
+            context = {
+                'signup_error_message': 'Invalid email or password.'}
+            return render(request, 'index.html', context)
         else:
             user = User.objects.create_user(username=name, email=email, password=password)
             Profile.objects.create(
@@ -59,6 +66,7 @@ def signup(request):
                 gender=gender,
                 phone=phone,
                 pincode=pincode,
+                insurer=insurer,
                 policy_name=policyname,
                 plan_type=policytype,
                 policy_start_date=parse_date(startdate),
@@ -66,6 +74,51 @@ def signup(request):
                 premium_monthly=premium,
                 total_amount=amt,
             )
-            login(request, user,backend='your_app_name.backends.EmailBackend')
+            login(request, user)
             return redirect('home')  
-    return redirect('home')
+    return redirect('signup')
+
+@login_required
+def home(request):
+    user = request.user
+    hospital_list=[]
+    profile = user.profile
+    policy_name = profile.policy_name
+    hospitals = Hospitals()
+    hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
+    if profile.gender=='male':
+        name="Mr. "+profile.name
+    else:
+        name="Ms. "+profile.name
+    context = {
+        'name': name,
+        'policyname':profile.policy_name,
+        'duration':profile.duration,
+        'provider':profile.insurer,
+        'premium':profile.premium_monthly,
+        'pincode':profile.pincode,
+        'hospitals':hospital_list
+
+    }
+    return render(request,"home.html",context)
+
+
+def filter_hospitals(request):
+    hospitals=Hospitals()
+    print("hii")
+    if request.method=="POST":
+        data = json.loads(request.body)
+        filter_pin = data.get('pincode')
+        user = request.user
+        profile = user.profile
+        print(filter_pin)
+        h=hospitals.network_hospitals(table_name=profile.insurer,pincode=filter_pin)
+
+        hospital_list = [
+            {'name': item[0], 'city': item[1], 'address': item[2]}
+            for item in h
+        ]
+        return JsonResponse({'hospitals': hospital_list}, safe=False)
+
+def network_hospitals(request):
+    return render(request,'hospitals.html')
