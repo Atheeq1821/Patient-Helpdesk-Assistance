@@ -27,14 +27,14 @@ def signin(request):
             user = None
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('homepage:home')
         else:
             context = {
                 'signin_error_message': 'Invalid email or password.'
             }
             return render(request, 'index.html', context)
 
-    return redirect('index')
+    return redirect('homepage:index')
 
 
 def signup(request):
@@ -75,8 +75,8 @@ def signup(request):
                 total_amount=amt,
             )
             login(request, user)
-            return redirect('home')  
-    return redirect('signup')
+            return redirect('homepage:home')  
+    return redirect('homepage:signup')
 
 @login_required
 def home(request):

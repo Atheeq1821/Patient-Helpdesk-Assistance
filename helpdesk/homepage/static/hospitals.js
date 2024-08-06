@@ -1,7 +1,9 @@
 function getCSRFToken() {
     return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 }
+
 function filterHospitals() {
+    document.body.classList.add('cursor-loading');
     var pincode = document.getElementById('filter').value;
     fetch("/filter_hospitals/", {
         method: 'POST',
@@ -13,6 +15,7 @@ function filterHospitals() {
             })
     .then(response => response.json())
     .then(data => {
+        document.body.classList.remove('cursor-loading');
         var table = document.querySelector('.htable');
         table.innerHTML = `
                 <tr>
