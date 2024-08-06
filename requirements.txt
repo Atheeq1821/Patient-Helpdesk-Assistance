@@ -9,3 +9,4 @@ datasets
 transformers
 langchain_chroma
 langchain_huggingface
+mysql.connector
