@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +43,8 @@
             <div class="ov-right">
                 <h4>{{ policyname }}</h4>
                 <h4>{{ provider }}</h4>
-                <h4>{{ duration }}</h4>
-                <h4>{{ premium }}</h4>
+                <h4>{{ duration }} years</h4>
+                <h4>₹ {{ premium }}</h4>                                         
             </div>
         </div>
         <div class="summary">
@@ -54,6 +55,45 @@
                  families and senior citizens looking for the right health cover ranging from 3 lacs to 5 lacs.
 
             </p>
+        </div>
+        <a href="#" id="download_policy"> Download policy Brochure</a>
+        <div class="claims-div">
+            <h4 class="claims-title">Your Claim History</h4>
+            <ul class-"claims-list">
+                {% for claim in claims %}
+                    <li class='claim-elements'>
+                        <span class="claim-title"> Claim ID:</span> {{ claim.claim_id }} | <span class="claim-title">Date:</span>{{ claim.claim_date }} |<span class="claim-title"> Amount:</span> ₹ {{ claim.amount_claimed }} | <span class="claim-title">Treatment Info:</span> {{ claim.treatment_info|slice:":20" }}
+                    </li>
+                {% empty %}
+                    <li class="claim-elements">No claims found.</li>
+                {% endfor %}
+            </ul>
+            <h4 class="claimable"><span class="claimable-title">Total Claimable : </span> ₹{{claimable_amt}} </h4>
+            <button id="add-claim-btn">Add Claim</button>
+
+    <!-- Add Claim Form -->
+            <div id="add-claim-form" style="display: none;">
+                <h2>Add New Claim</h2>
+                <form method="post" class="claim-form" action="{% url 'homepage:create_claim' %}">
+                    {% csrf_token %}
+                    <div>
+                        <label for="claim-date">Claim Date:</label>
+                        <input type="date" id="claim-date" name="claim_date" class="claim-input-class" placeholder="Enter claim date..." required>
+                    </div>
+                    
+                    <div>
+                        <label for="amount-claimed">Amount Claimed:</label>
+                        <input type="number" id="amount-claimed" name="amount_claimed" class="claim-input-class" placeholder="Enter amount claimed..." required>
+                    </div>
+                    
+                    <div>
+                        <label for="treatment-info">Treatment Information:</label>
+                        <input type='text' id="treatment-info" name="treatment_info" class="claim-input-class" placeholder="Enter treatment information..." required></input>
+                    </div>
+                    
+                    <button type="submit" id='claim-submit'>Submit</button>
+                </form>
+            </div>
         </div>
     </section>
     <section class="imp-sect">
@@ -114,5 +154,15 @@
     </section>
 
     <script src="{% static 'home.js' %}"></script>
+    <script>
+        document.getElementById('add-claim-btn').addEventListener('click', function() {
+            var form = document.getElementById('add-claim-form');
+            if (form.style.display === 'none') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

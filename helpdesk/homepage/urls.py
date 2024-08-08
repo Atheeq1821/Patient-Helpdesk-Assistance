@@ -9,4 +9,5 @@ urlpatterns = [
     path('homepage/', views.home, name='home'),
     path('network_hospitals/', views.network_hospitals, name='network_hospitals'),
     path('filter_hospitals/', views.filter_hospitals, name='filter_hospitals'),
+    path('create_claim/', views.create_claim, name='create_claim'),
 ]

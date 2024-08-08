@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from .models import Profile
+from .models import Profile,Claim
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -78,18 +78,45 @@ def signup(request):
             return redirect('homepage:home')  
     return redirect('homepage:signup')
 
+
+def claim_view(curr):
+    claims = Claim.objects.filter(user=curr.user)
+    return claims
+
+def create_claim(request):
+    if request.method == 'POST':
+        claim_date = request.POST.get('claim_date')
+        amount_claimed = request.POST.get('amount_claimed')
+        treatment_info = request.POST.get('treatment_info')
+        user_input = request.POST.get('user_input')
+        
+        # Create and save the claim
+        claim = Claim(
+            claim_date=claim_date,
+            user=request.user,
+            amount_claimed=amount_claimed,
+            treatment_info=treatment_info
+        )
+        claim.save()
+        redirect('homepage:home')
+    redirect('homepage:home')
+
 @login_required
 def home(request):
     user = request.user
     hospital_list=[]
     profile = user.profile
-    policy_name = profile.policy_name
+
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
     if profile.gender=='male':
         name="Mr. "+profile.name
     else:
         name="Ms. "+profile.name
+    claim_history=claim_view(request)
+    claimable_amt = profile.total_amount
+    for claims in claim_history:
+        claimable_amt-=claims.amount_claimed
     context = {
         'name': name,
         'policyname':profile.policy_name,
@@ -97,7 +124,9 @@ def home(request):
         'provider':profile.insurer,
         'premium':profile.premium_monthly,
         'pincode':profile.pincode,
-        'hospitals':hospital_list
+        'hospitals':hospital_list,
+        'claims':claim_history,
+        'claimable_amt':claimable_amt,
 
     }
     return render(request,"home.html",context)

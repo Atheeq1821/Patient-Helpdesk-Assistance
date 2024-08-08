@@ -18,3 +18,13 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Claim(models.Model):
+    claim_id = models.AutoField(primary_key=True)
+    claim_date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='claims')
+    amount_claimed = models.DecimalField(max_digits=10, decimal_places=2)
+    treatment_info = models.TextField()
+
+    def __str__(self):
+        return f"Claim {self.claim_id} by {self.user.username}"
