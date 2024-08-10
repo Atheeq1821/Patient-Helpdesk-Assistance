@@ -3,11 +3,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+import os
 from .models import Profile,Claim
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from helpdesk.utils import Hospitals
+from django.conf import settings
 import json
 # Create your views here.
 
@@ -98,8 +100,8 @@ def create_claim(request):
             treatment_info=treatment_info
         )
         claim.save()
-        redirect('homepage:home')
-    redirect('homepage:home')
+        return redirect('homepage:home')
+    return redirect('homepage:home')
 
 @login_required
 def home(request):
@@ -107,16 +109,33 @@ def home(request):
     hospital_list=[]
     profile = user.profile
 
+
+    #network hospitals
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
     if profile.gender=='male':
         name="Mr. "+profile.name
     else:
         name="Ms. "+profile.name
+
+
+    #claim history
     claim_history=claim_view(request)
     claimable_amt = profile.total_amount
     for claims in claim_history:
         claimable_amt-=claims.amount_claimed
+
+    #features
+    JSON_PATH = os.path.join(settings.BASE_DIR, 'data', 'policy.json')
+    print(JSON_PATH)
+    with open(JSON_PATH, 'r',encoding='utf-8') as file:
+        data = json.load(file)
+    policy_details=data['Health Care Supreme']  # change to user policy
+    print(policy_details)
+    summary=policy_details['summary']
+    print(type(data))
+    # policy_details = get_policy_details(JSON_FILE,profile.policy_name)
+
     context = {
         'name': name,
         'policyname':profile.policy_name,
@@ -127,11 +146,13 @@ def home(request):
         'hospitals':hospital_list,
         'claims':claim_history,
         'claimable_amt':claimable_amt,
+        'summary':summary,
 
     }
     return render(request,"home.html",context)
 
-
+# def get_policy_details(policy_name):
+#     return data.get(policy_name, "Policy not found")
 def filter_hospitals(request):
     hospitals=Hospitals()
     print("hii")

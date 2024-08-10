@@ -49,17 +49,14 @@
         </div>
         <div class="summary">
             <h4>Policy Summary</h4>
-            <p>Your health has always been our top priority! We at HDFC ERGO take privilege to launch our new health insurance plan ,
-                 my:health Suraksha, which aims at giving you a 360 degree protection against soaring medical expenses. 
-                 Designed with a robust thought and a strong base coverage, my:health Suraksha is a delight for individual, 
-                 families and senior citizens looking for the right health cover ranging from 3 lacs to 5 lacs.
+            <p>{{ summary }}
 
             </p>
         </div>
         <a href="#" id="download_policy"> Download policy Brochure</a>
         <div class="claims-div">
             <h4 class="claims-title">Your Claim History</h4>
-            <ul class-"claims-list">
+            <ul class="claims-list">
                 {% for claim in claims %}
                     <li class='claim-elements'>
                         <span class="claim-title"> Claim ID:</span> {{ claim.claim_id }} | <span class="claim-title">Date:</span>{{ claim.claim_date }} |<span class="claim-title"> Amount:</span> ₹ {{ claim.amount_claimed }} | <span class="claim-title">Treatment Info:</span> {{ claim.treatment_info|slice:":20" }}

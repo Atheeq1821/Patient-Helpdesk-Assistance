@@ -1,48 +1,52 @@
-import streamlit as st
-# import os
-# os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-from langchain_chroma import Chroma
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.llms.ollama import Ollama
+groq_api="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"
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
-import torch
+from langchain_chroma import Chroma
+from groq import Groq
+
+
+
 #embedding model
 model_name = "sentence-transformers/all-mpnet-base-v2"
-
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
-#loading local model
-model = Ollama(model="llama2")
-
 CHROMA_PATH='chroma'
+# CHROMA_PATH='chroma\policies'
 
-def generate_pre_output(user_query,policy_name):
-    print("inside llm")
-    PROMPT_TEMPLATE = """
-    Answer the question based only on the following context without hallucinations:
-
-    {context}
-
-    ---
-
-    Provide only the answer to the query without adding irrelevant sentences: {question}
-    """
-
+def activate_qroq(user_query,policy_name,conversation_history):
     query_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings,collection_name=policy_name)
-
-    #customized query
-    query=f"{user_query} under {policy_name}"
-
-    results = query_db.similarity_search_with_score(query, k=2)  #retriving relevant dpcuments from database
+    print(query_db)
+    results = query_db.similarity_search_with_score(user_query, k=2)  #retriving relevant dpcuments from database
     print(results)
-    context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
-
-    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-
-    prompt = prompt_template.format(context=context_text, question=query)  #prompt for llm
-    print("to the model...")
-    response_text = model.invoke(prompt) #response from llm
-    print("almost done...")
-    return response_text
-
+    context = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
+    print(context)
+    print("-------------------------------------------------------")
+    client = Groq(
+        api_key=groq_api,
+    )
+    history = ""
+    try:
+        for entry in conversation_history:
+            history += f"User: {entry['user']}\nBot: {entry['model']}\n\n"
+    except Exception as e:
+        print("First convo")
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful health insurance patient helpdesk bot. Provide an answer only to the asked query of the user based on the provided content of the insurance policy. Don't add hallucinations and content like based on previous conversation or based on the document and keep it straightforward.",
+            },
+            {
+                "role":"system",
+                "content":context
+            },
+            {
+                "role": "user",
+                "content": history + f"\nUser: {user_query}",
+            },
+        ],
+        model="llama-3.1-70b-versatile",
+    )
+    output=chat_completion.choices[0].message.content
+    print(output) 
+    return output
 

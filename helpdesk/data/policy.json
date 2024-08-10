@@ -1,0 +1,188 @@
+{
+    "Health Guard Platinum": {
+        "summary": "A comprehensive health insurance plan offering coverage for a wide range of medical expenses, including pre and post-hospitalization, daycare treatments, and alternative treatments.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": {},
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": false,
+        "Ask for restoration benefit": true, 
+        "Bonus in case you don’t make a claim" : "", 
+        "Free health checkups every year"  : "", 
+        "Cover for Alternative treatments" : "", 
+        "link" : ""
+    },
+
+    "Health Guard Silver": {
+        "summary": "A comprehensive health insurance plan offering coverage for a wide range of medical expenses, including pre and post-hospitalization, daycare treatments, and alternative treatments.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": "",
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": false,  
+        "Ask for restoration benefit": true, 
+        "Bonus in case you don’t make a claim" : "", 
+        "Free health checkups every year"  : "", 
+        "Cover for Alternative treatments" : "",  
+        "link" : ""
+    },
+
+    "Health Guard Gold": {
+        "summary": "A comprehensive health insurance plan offering coverage for a wide range of medical expenses, including pre and post-hospitalization, daycare treatments, and alternative treatments.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": "",
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": null, 
+        "Ask for restoration benefit": true,
+        "Bonus in case you don’t make a claim" : "", 
+        "Free health checkups every year"  : "", 
+        "Cover for Alternative treatments" : "",  
+        "link" : ""
+    }, 
+
+    "Health Care Supreme": {
+        "summary": "A detailed health insurance policy covering a wide range of medical expenses, including air ambulance, maternity expenses, and modern treatments, with benefits for both pre and post-hospitalization.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": false,
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": 144,
+        "Ask for restoration benefit": true,
+        "Bonus in case you don’t make a claim": true,
+        "Free health checkups every year": true,
+        "Cover for Alternative treatments": true
+    },
+
+    "Health Care Supreme Ultimo": {
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": "", 
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": 10,
+        "Ask for restoration benefit": true, 
+        "Bonus in case you don’t make a claim" : "", 
+        "Free health checkups every year"  : "", 
+        "Cover for Alternative treatments" : "", 
+        "link" : ""
+    }, 
+
+    "Health Ensure": {
+      "Don't split the Bill": false,
+      "Restrictions on room & room rent": true,
+      "Check for Disease Wise Sub-limits": {},
+      "Opt for pre and post-hospitalization care": true,
+      "Coverage for daycare treatments": "Day care procedures",
+      "Ask for restoration benefit": true,
+      "summary": "Health Ensure provides coverage for pre and post-hospitalization for 30 and 60 days, respectively. It includes day care procedures, emergency road ambulance cover, Ayurvedic and Homeopathic hospitalization, and a cumulative bonus for each claim-free year. The policy also has restrictions on room rent and boarding."
+    },
+
+    "Care Supreme": {
+        "summary": "A health insurance policy providing extensive coverage, including outpatient expenses, maternity cover, and alternative treatments, with no restrictions on room rent.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": false,
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": "All",
+        "Ask for restoration benefit": true,
+        "Bonus in case you don't make a claim": true,
+        "Free health checkups every year": true,
+        "Cover for Alternative treatments": true
+    }, 
+
+    "Care Senior": {
+    "summary": "Care Senior is a comprehensive health insurance plan designed for senior citizens, offering various benefits such as no pre-policy medical check-up, automatic recharge of the sum insured, individual and floater cover, and annual health check-ups for all insured persons.",
+    "Don't split the Bill": false,
+    "Restrictions on room & room rent": true,
+    "Check for Disease Wise Sub-limits": true,
+    "Opt for pre and post-hospitalization care": true,
+    "Coverage for daycare treatments": true,
+    "Ask for restoration benefit": true,
+    "Bonus in case you don't make a claim": true,
+    "Free health checkups every year": true,
+    "Cover for Alternative treatments": true
+    }, 
+
+    "Care Advantage": {
+    "summary": "Care Advantage Brochure provides details about the Care Health Insurance plan that offers comprehensive coverage including pre and post-hospitalization care, day care treatments, and alternative treatments. It also includes optional add-ons like Protect Plus with global coverage.",
+    "Don't split the Bill": false,
+    "Restrictions on room & room rent": false,
+    "Check for Disease Wise Sub-limits": false,
+    "Opt for pre and post-hospitalization care": true,
+    "Coverage for daycare treatments": true,
+    "Ask for restoration benefit": true,
+    "Bonus in case you don’t make a claim": true,
+    "Free health checkups every year": true,
+    "Cover for Alternative treatments": true
+    }, 
+
+    "Care Plus Youth": {
+    "summary": "Care Plus Youth Brochure provides details about the Care Health Insurance plan that offers comprehensive coverage including pre and post-hospitalization care, day care treatments, and alternative treatments. It also includes benefits like unlimited automatic recharge, annual health check-ups, and personal accident coverage for the primary insured member.",
+    "Don't split the Bill": false,
+    "Restrictions on room & room rent": true,
+    "Check for Disease Wise Sub-limits": false,
+    "Opt for pre and post-hospitalization care": true,
+    "Coverage for daycare treatments": true,
+    "Ask for restoration benefit": true,
+    "Bonus in case you don’t make a claim": true,
+    "Free health checkups every year": true,
+    "Cover for Alternative treatments": true
+    }, 
+
+    "Care Classic Policy": {
+    "summary": "The Care Classic policy provides extensive coverage for a wide range of medical expenses including inpatient care, pre and post-hospitalization, and daycare treatments. It offers features such as unlimited automatic recharge, annual health check-ups, and additional optional benefits like global coverage and air ambulance services.",
+    "Don't split the Bill": false,
+    "Restrictions on room & room rent": true,
+    "Check for Disease Wise Sub-limits": true,
+    "Opt for pre and post-hospitalization care": true,
+    "Coverage for daycare treatments": true,
+    "Ask for restoration benefit": true,
+    "Bonus in case you don’t make a claim": true,
+    "Free health checkups every year": true,
+    "Cover for Alternative treatments": true
+    }, 
+
+    "myHealth Suraksha Gold" : {
+        "summary": "myHealth Suraksha provides comprehensive health insurance with coverage for in-patient care, pre and post-hospitalization, daycare treatments, domiciliary hospitalization, and annual health check-ups. It also offers benefits like no claims bonus, second opinion, and unlimited automatic recharge.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": true,
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": true,
+        "Ask for restoration benefit": true,
+        "Bonus in case you don’t make a claim": true,
+        "Free health checkups every year": true,
+        "Cover for Alternative treatments": true
+    }, 
+
+    "Energy Gold": {
+        "summary": "The policy provides comprehensive health coverage including day one coverage for hospitalization due to diabetes and hypertension, pre and post-hospitalization care, coverage for daycare procedures, emergency ambulance, organ donor expenses, and wellness benefits. It also offers reward points for maintaining good health.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": true,
+        "Check for Disease Wise Sub-limits": false,
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": true,
+        "Ask for restoration benefit": true,
+        "Bonus in case you don’t make a claim": true,
+        "Free health checkups every year": true,
+        "Cover for Alternative treatments": false
+    }, 
+
+    "Optima Secure": {
+        "summary": "Optima Secure is a comprehensive health insurance plan offering 4X coverage through various benefits at no additional cost. It includes features like Secure Benefit, Plus Benefit, Restore Benefit, Protect Benefit, and coverage for pre and post-hospitalization, daycare treatments, home healthcare, and more. It aims to provide extensive coverage and additional benefits to policyholders.",
+        "Don't split the Bill": false,
+        "Restrictions on room & room rent": false,
+        "Check for Disease Wise Sub-limits": false,
+        "Opt for pre and post-hospitalization care": true,
+        "Coverage for daycare treatments": true,
+        "Ask for restoration benefit": true,
+        "Bonus in case you don’t make a claim": true,
+        "Free health checkups every year": true,
+        "Cover for Alternative treatments": true
+    }
+
+    
+
+
+
+
+
+}
