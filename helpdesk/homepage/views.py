@@ -140,7 +140,7 @@ def home(request):
     POLICY_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','policy.json')
     with open(POLICY_JSON_PATH, 'r',encoding='utf-8') as file:
         policy_json_data = json.load(file)
-    policy_details=policy_json_data['suraksha'] 
+    policy_details=policy_json_data[profile.policy_name] 
     summary=policy_details['summary']
 
 
