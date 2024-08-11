@@ -128,7 +128,7 @@ nav.scrolled {
     justify-content: space-between;
     font-size: 30px;
     color: #6038ff;
-    width: 55%;
+    width: fit-content;
 }
 h4{
     line-height: 60px;
