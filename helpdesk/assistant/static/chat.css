@@ -55,8 +55,26 @@ nav.scrolled {
 .cts img{
     width: 141px;
 }
+
+.assist-head{
+    width: fit-content;
+    margin:8% auto 0px auto;
+    text-align: center;
+    padding: 8px 12px;
+    font-weight: 900;
+    background-image: linear-gradient(to left, #553c9a, #690e55);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    border: 1px solid #553c9a;
+}
+
+
+
+
+
 .chat-section{
-    margin-top: 10%;
+    margin-top: 40px;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;

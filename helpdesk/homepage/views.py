@@ -2,13 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.utils import timezone
 from django.http import HttpResponse
 import os
 from .models import Profile,Claim
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from helpdesk.utils import Hospitals
+from helpdesk.utils import Hospitals,get_balance_date,get_renew_details
+from helpdesk.llm_utils import *
 from django.conf import settings
 import json
 # Create your views here.
@@ -105,6 +107,8 @@ def create_claim(request):
 
 @login_required
 def home(request):
+    if 'user_summary' not in request.session:
+        request.session['user_summary'] = ""
     user = request.user
     hospital_list=[]
     profile = user.profile
@@ -122,24 +126,50 @@ def home(request):
     #claim history
     claim_history=claim_view(request)
     claimable_amt = profile.total_amount
+    claims_summary=""
+    claim_count=0
     for claims in claim_history:
+        claim_count+=1
         claimable_amt-=claims.amount_claimed
+        claims_summary+=f" Claim ID ->{claims.claim_id} , Claim-date->{claims.claim_date}, Claim-amt ->{claims.amount_claimed} , Treatment Info -> {claims.treatment_info} \n"
+    
+    claims_summary=f"Number of claims made by the user is {claim_count} \n"+claims_summary
+    print(claims_summary)
 
     #features
-    JSON_PATH = os.path.join(settings.BASE_DIR, 'data', 'policy.json')
-    print(JSON_PATH)
-    with open(JSON_PATH, 'r',encoding='utf-8') as file:
-        data = json.load(file)
-    policy_details=data['Health Care Supreme']  # change to user policy
-    print(policy_details)
+    POLICY_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','policy.json')
+    with open(POLICY_JSON_PATH, 'r',encoding='utf-8') as file:
+        policy_json_data = json.load(file)
+    policy_details=policy_json_data['suraksha'] 
     summary=policy_details['summary']
-    print(type(data))
-    # policy_details = get_policy_details(JSON_FILE,profile.policy_name)
 
+
+    FEATURE_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','feature.json')
+    with open(FEATURE_JSON_PATH, 'r',encoding='utf-8') as file:
+        feature_json_data = json.load(file)
+    features=[]
+    for feature in policy_details['features']:
+        if feature in feature_json_data:
+            features.append([feature,feature_json_data[feature]])
+            
+    #date calculation
+    expiry=get_balance_date(start=profile.policy_start_date,dur=profile.duration)
+
+    request.session['user_summary'] = get_user_summary(
+        name=profile.name,
+        age=profile.age,
+        policy=profile.policy_name,
+        type=profile.plan_type,
+        gender=profile.gender,
+        claims=claims_summary,
+        policy_start_date=profile.policy_start_date,
+        premium=profile.premium_monthly,
+        amt=profile.total_amount,
+        expiry=expiry)
     context = {
         'name': name,
         'policyname':profile.policy_name,
-        'duration':profile.duration,
+        'duration':expiry,
         'provider':profile.insurer,
         'premium':profile.premium_monthly,
         'pincode':profile.pincode,
@@ -147,6 +177,8 @@ def home(request):
         'claims':claim_history,
         'claimable_amt':claimable_amt,
         'summary':summary,
+        'features':features,
+        'policy_link': policy_details['link']
 
     }
     return render(request,"home.html",context)
@@ -155,7 +187,6 @@ def home(request):
 #     return data.get(policy_name, "Policy not found")
 def filter_hospitals(request):
     hospitals=Hospitals()
-    print("hii")
     if request.method=="POST":
         data = json.loads(request.body)
         filter_pin = data.get('pincode')
@@ -172,3 +203,24 @@ def filter_hospitals(request):
 
 def network_hospitals(request):
     return render(request,'hospitals.html')
+
+
+
+
+def renew(request):
+    print("renew")
+    user = request.user
+    profile=user.profile
+    if request.method=='POST':
+        print("hii")
+        duration = request.POST.get('renew')
+        profile.duration=int(duration)
+        # return render(request,'renew.html')
+        profile.policy_start_date=timezone.now().date()
+        profile.save()
+        return redirect('homepage:home')
+    user_details=request.session['user_summary']
+    llm_output = get_renew_details("suraksha",user_details=user_details)
+    # formatted_output = llm_output.strip()
+    # renewal= formatted_output.replace('* ', '\n* ').replace('\n\n', '\n')
+    return render(request,'renew.html',{'renew':llm_output})

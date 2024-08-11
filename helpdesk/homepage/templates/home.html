@@ -11,49 +11,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,500;0,600;0,700;0,800;0,900;1,100;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Helpdesk</title>
     <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'animate.css' %}">
 </head>
 <body>
     <section class="main">
         <section class="hero">
             <nav id="navbar">
                 <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
-                <div class="nav-cont"> <a href="">Claim Denial Assistance</a></div>
+                <div class="nav-cont"> <a href="{% url 'assistant:denial' %}">Claim Denial Assistance</a></div>
                 <div class="nav-cont"><a href="{% url 'homepage:network_hospitals' %}">Network Hospitals</a></div>
                 <ul>
-                    <li>login</li>
+                    <!-- <li>login</li> -->
                 </ul>
             </nav>
             <h1 class="welcome" >Welcome <span id="name_class">{{ name }}</span><span class="next-line" id="t1"></span>
                 <span class="next-line" id="t2"></span>
             </h1>
             <div class="centerdiv">
-                <h1 class="title">PATIENT HELPDESK ASSISTANT</h1>
-                <a href="#overview-t" id="learn-more">Learn More</a>
+                <h1 class="title hidden">PATIENT HELPDESK ASSISTANT</h1>
+                <a href="#overview-t" id="learn-more" class="hidden">Learn More</a>
             </div>
         </section>
     <section class="overview" id="navigate">
         <h1 id="overview-t">POLICY OVERVIEW</h1>
         <div class="overview-c">
             <div class="ov-left">
-                <h4>Policy Name :</h4>
-                <h4>Policy Provider :</h4>
-                <h4>Policy Duration:</h4>
-                <h4>Premium Monthly Paid:</h4>
+                <h4 class="hidden-lr">Policy Name :</h4>
+                <h4 class="hidden-lr">Policy Provider :</h4>
+                <h4 class="hidden-lr">Policy Duration:</h4>
+                <h4 class="hidden-lr">Premium Monthly Paid:</h4>
             </div>
             <div class="ov-right">
-                <h4>{{ policyname }}</h4>
-                <h4>{{ provider }}</h4>
-                <h4>{{ duration }} years</h4>
-                <h4>₹ {{ premium }}</h4>                                         
+                <h4 class="hidden-rl">{{ policyname }}</h4>
+                <h4 class="hidden-rl">{{ provider }}</h4>
+                <h4 class="hidden-rl"> {{ duration }} <a href="{% url 'homepage:renew' %}" class="renew">Renew</a> </h4>
+                <h4 class="hidden-rl">₹ {{ premium }}</h4>                                         
             </div>
         </div>
         <div class="summary">
-            <h4>Policy Summary</h4>
-            <p>{{ summary }}
+            <h4 class="hidden-lr">Policy Summary</h4>
+            <p class="hidden-lr">{{ summary }}
 
             </p>
         </div>
-        <a href="#" id="download_policy"> Download policy Brochure</a>
+        <a href="{{ policy_link }}" id="download_policy" class="hidden"> Download policy Brochure</a>
         <div class="claims-div">
             <h4 class="claims-title">Your Claim History</h4>
             <ul class="claims-list">
@@ -94,20 +95,14 @@
         </div>
     </section>
     <section class="imp-sect">
-        <h3>Features of your policy</h3>
+        <h3 class="hidden">Features of your policy</h3>
         <div class="imp-container">
-            <div class="imp-element">
-                <h5 id="imp-title">No room rent capping</h5>
-                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
-            </div>
-            <div class="imp-element">
-                <h5 id="imp-title">No room rent capping</h5>
-                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
-            </div>
-            <div class="imp-element">
-                <h5 id="imp-title">No room rent capping</h5>
-                <p id="imp-cont">Worried that you can't afford a hospital room of your choice with your insurance plan? With my:health Suraksha you can bank in healthcare comforts.</p>
-            </div>
+            {% for f in features %}
+                <div class="imp-element hidden">
+                    <h5 id="imp-title">{{f.0}}</h5>
+                    <p id="imp-cont">{{f.1}}</p>
+                </div>
+            {% endfor %}
         </div>
     </section>
 
@@ -136,21 +131,22 @@
 
             </div>
             <div class="chat-cont">
-                <h5 class="chat-title">
+                <h5 class="chat-title hidden-rl">
                     Know Your Coverage Inside Out With Our AI
                 </h5>
-                <p class="chat-p">--Easily access detailed information about your policy.</p>
-                <p class="chat-p">--Get all the benefit details you need before making a claim.</p>
-                <p class="chat-p">--Ask our assistant your doubts about the claim process.</p>
+                <p class="chat-p hidden-rl">--Easily access detailed information about your policy.</p>
+                <p class="chat-p hidden-rl">--Get all the benefit details you need before making a claim.</p>
+                <p class="chat-p hidden-rl">--Ask our assistant your doubts about the claim process.</p>
                 <div class="chat-a">
-                    <a href="{% url 'assistant:assistant' %}" id="prehos">Pre Hospitalization</a>
-                    <a href="" id="posthos">Post Hospitalization</a>
+                    <a href="{% url 'assistant:assistant' %}" id="prehos" class="hidden">Know your Policy</a>
+                    <a href="" id="posthos" class="hidden">Claim Denial Assistance</a>
                 </div>
             </div>
         </div>
     </section>
 
     <script src="{% static 'home.js' %}"></script>
+    <script src="{% static 'common.js' %}"></script>
     <script>
         document.getElementById('add-claim-btn').addEventListener('click', function() {
             var form = document.getElementById('add-claim-form');

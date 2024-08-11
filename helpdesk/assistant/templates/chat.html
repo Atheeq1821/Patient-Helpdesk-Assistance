@@ -19,12 +19,13 @@
     <body>
             <nav id="navbar">
                 <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
-                <div class="nav-cont"> <a href="{% url 'homepage:home' %}">Home Page</a></div>
+                <div class="nav-cont"> <a href="{% url 'homepage:home' %}">Home</a></div>
                 <div class="nav-cont"><a href="{% url 'homepage:network_hospitals' %}">Network Hospitals</a></div>
                 <ul>
-                    <li>login</li>
+                    <!-- <li>login</li> -->
                 </ul>
             </nav>
+            <h2 class="assist-head">Unsure about policy scope and benefits? Our AI guide is ready to light up your path!</h2>
         <section class="chat-section">
             <div class="chat-container">
                 <div class="chat-header">
@@ -45,4 +46,5 @@
 
     </body> 
     <script src="{% static 'chat.js' %}"></script>
+    <script src="{% static 'common.js' %}"></script>
 </html>

@@ -9,16 +9,13 @@ from groq import Groq
 model_name = "sentence-transformers/all-mpnet-base-v2"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
-CHROMA_PATH='chroma'
+CHROMA_PATH='chroma\policies'
 # CHROMA_PATH='chroma\policies'
 
-def activate_qroq(user_query,policy_name,conversation_history):
+def query_assist(user_query,policy_name,conversation_history):
     query_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings,collection_name=policy_name)
-    print(query_db)
-    results = query_db.similarity_search_with_score(user_query, k=2)  #retriving relevant dpcuments from database
-    print(results)
+    results = query_db.similarity_search_with_score(user_query, k=4)  #retriving relevant dpcuments from database
     context = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
-    print(context)
     print("-------------------------------------------------------")
     client = Groq(
         api_key=groq_api,
@@ -47,6 +44,5 @@ def activate_qroq(user_query,policy_name,conversation_history):
         model="llama-3.1-70b-versatile",
     )
     output=chat_completion.choices[0].message.content
-    print(output) 
     return output
 

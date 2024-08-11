@@ -17,9 +17,9 @@
         <nav id="navbar">
             <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
             <div class="nav-cont"> <a href="{% url 'homepage:home' %}">Home</a></div>
-            <div class="nav-cont"><a href="#">Claim Denial Assistance</a></div>
+            <div class="nav-cont"> <a href="{% url 'assistant:denial' %}">Claim Denial Assistance</a></div>
             <ul>
-                <li>login</li>
+                <!-- <li>login</li> -->
             </ul>
         </nav>
         <section class="network-hospitals">
@@ -41,4 +41,5 @@
     const csrfToken = "{{ csrf_token }}";
 </script>
 <script src="{% static 'hospitals.js' %}"></script>
+<script src="{% static 'common.js' %}"></script>
 </html>
