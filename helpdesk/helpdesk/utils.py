@@ -1,10 +1,14 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+groq_api = os.getenv('GROQ_API_KEY')
 import mysql.connector
 from mysql.connector import Error
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 
 
-groq_api="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"
+
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from groq import Groq
