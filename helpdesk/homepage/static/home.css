@@ -263,10 +263,28 @@ ul{
    border: none;
    cursor: pointer;
 }
-#add-claim-btn:hover,#claim-submit:hover{
+#add-claim-btn:hover,#claim-submit:hover,.dlt-btn:hover{
     background-color: #6038ff;
     color: white;
 }
+
+.deleteform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dlt-btn{
+    width: fit-content;
+    font-size: 15px;
+   padding: 5px 15px;
+   border-radius: 5px;
+   border: none;
+   cursor: pointer;
+   text-align: center;
+
+}
+
+
 .claim-form{
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
     backdrop-filter: blur(8px);

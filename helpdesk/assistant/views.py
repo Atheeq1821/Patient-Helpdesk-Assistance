@@ -16,15 +16,15 @@ def assistant(request):
         print("form loadede")
         if form.is_valid():
             user_input = form.cleaned_data['user_input']
-            print(user_input)
+            user = request.user
+            profile = user.profile
             conversation_history = request.session['conversation_history']
-            model_output=query_assist(user_query=user_input,policy_name="care",conversation_history=conversation_history)
+            model_output=query_assist(user_query=user_input,policy_name=profile.policy_name,conversation_history=conversation_history)
             
             conversation_history.append({
                 'user': user_input,
                 'model': model_output
             })
-            print(conversation_history)
             request.session['conversation_history'] = conversation_history
             response_data = {
                 'user': "You: " + user_input,

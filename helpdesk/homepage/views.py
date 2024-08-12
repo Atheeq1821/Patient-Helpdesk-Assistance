@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -9,14 +9,14 @@ from .models import Profile,Claim
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from helpdesk.utils import Hospitals,get_balance_date,get_renew_details
+from helpdesk.utils import Hospitals,get_balance_date,get_renew_details,get_claim_summary
 from helpdesk.llm_utils import *
 from django.conf import settings
 import json
 # Create your views here.
 
 
-def index(request):
+def index(request):   # Login and signup page view
     return render(request,"index.html")
 
 
@@ -83,7 +83,7 @@ def signup(request):
     return redirect('homepage:signup')
 
 
-def claim_view(curr):
+def claim_view(curr):  #view to list all the claims made by the user
     claims = Claim.objects.filter(user=curr.user)
     return claims
 
@@ -94,7 +94,7 @@ def create_claim(request):
         treatment_info = request.POST.get('treatment_info')
         user_input = request.POST.get('user_input')
         
-        # Create and save the claim
+
         claim = Claim(
             claim_date=claim_date,
             user=request.user,
@@ -105,38 +105,60 @@ def create_claim(request):
         return redirect('homepage:home')
     return redirect('homepage:home')
 
+def delete_claim(request, claim_id):
+    if request.method == 'POST':
+        claim = get_object_or_404(Claim, pk=claim_id)
+        claim.delete()
+        user=request.user
+        profile=user.profile
+
+        #making new user_summary since claim history got deleted
+
+        claim_history=claim_view(request)
+        claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
+        expiry = get_balance_date(expiry_date=profile.policy_start_date, duration=profile.duration)
+        request.session['user_summary'] = get_user_summary(
+            name=profile.name,
+            age=profile.age,
+            policy=profile.policy_name,
+            type=profile.plan_type,
+            gender=profile.gender,
+            claims=claims_summary,
+            policy_start_date=profile.policy_start_date,
+            premium=profile.premium_monthly,
+            amt=profile.total_amount,
+            expiry=expiry)
+    return redirect('homepage:home')  
+
+
+
+
 @login_required
 def home(request):
-    if 'user_summary' not in request.session:
+    if 'user_summary' not in request.session:  #user summary creation
         request.session['user_summary'] = ""
     user = request.user
     hospital_list=[]
     profile = user.profile
 
 
-    #network hospitals
+    #network hospitals ->  helpdesk/utils.py
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
-    if profile.gender=='male':
-        name="Mr. "+profile.name
+
+
+    if profile.gender=='male':  #Name to be displayed on site
+        name="Mr. "+profile.name   
     else:
         name="Ms. "+profile.name
 
 
     #claim history
     claim_history=claim_view(request)
-    claimable_amt = profile.total_amount
-    claims_summary=""
-    claim_count=0
-    for claims in claim_history:
-        claim_count+=1
-        claimable_amt-=claims.amount_claimed
-        claims_summary+=f" Claim ID ->{claims.claim_id} , Claim-date->{claims.claim_date}, Claim-amt ->{claims.amount_claimed} , Treatment Info -> {claims.treatment_info} \n"
-    
-    claims_summary=f"Number of claims made by the user is {claim_count} \n"+claims_summary
-    print(claims_summary)
+    #getting claim summary and claimable amount -> helpdesk/utils.py
+    claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
 
-    #features
+    #extracting policy summary from json file
     POLICY_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','policy.json')
     with open(POLICY_JSON_PATH, 'r',encoding='utf-8') as file:
         policy_json_data = json.load(file)
@@ -144,6 +166,7 @@ def home(request):
     summary=policy_details['summary']
 
 
+    #extracting policy features form json file
     FEATURE_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','feature.json')
     with open(FEATURE_JSON_PATH, 'r',encoding='utf-8') as file:
         feature_json_data = json.load(file)
@@ -151,21 +174,24 @@ def home(request):
     for feature in policy_details['features']:
         if feature in feature_json_data:
             features.append([feature,feature_json_data[feature]])
-            
-    #date calculation
+    
+    #Expiry date calculation from current date -> helpdesk/utils.py
     expiry=get_balance_date(start=profile.policy_start_date,dur=profile.duration)
 
-    request.session['user_summary'] = get_user_summary(
-        name=profile.name,
-        age=profile.age,
-        policy=profile.policy_name,
-        type=profile.plan_type,
-        gender=profile.gender,
-        claims=claims_summary,
-        policy_start_date=profile.policy_start_date,
-        premium=profile.premium_monthly,
-        amt=profile.total_amount,
-        expiry=expiry)
+
+    if request.session['user_summary']=="": #creating user summary -> helpdesk/llm_utils.py
+        request.session['user_summary'] = get_user_summary(
+            name=profile.name,
+            age=profile.age,
+            policy=profile.policy_name,
+            type=profile.plan_type,
+            gender=profile.gender,
+            claims=claims_summary,
+            policy_start_date=profile.policy_start_date,
+            premium=profile.premium_monthly,
+            amt=profile.total_amount,
+            expiry=expiry)
+        
     context = {
         'name': name,
         'policyname':profile.policy_name,
@@ -183,16 +209,14 @@ def home(request):
     }
     return render(request,"home.html",context)
 
-# def get_policy_details(policy_name):
-#     return data.get(policy_name, "Policy not found")
-def filter_hospitals(request):
-    hospitals=Hospitals()
+
+def filter_hospitals(request):   # Network hospitals page view
+    hospitals=Hospitals()  # Class loaded from -> helpdesk/utils.py
     if request.method=="POST":
         data = json.loads(request.body)
         filter_pin = data.get('pincode')
         user = request.user
         profile = user.profile
-        print(filter_pin)
         h=hospitals.network_hospitals(table_name=profile.insurer,pincode=filter_pin)
 
         hospital_list = [
@@ -201,26 +225,25 @@ def filter_hospitals(request):
         ]
         return JsonResponse({'hospitals': hospital_list}, safe=False)
 
-def network_hospitals(request):
+def network_hospitals(request): #network hospitals view
     return render(request,'hospitals.html')
 
 
 
-
-def renew(request):
-    print("renew")
+from django.utils.safestring import mark_safe
+def renew(request):   #view for renew bonus page 
     user = request.user
     profile=user.profile
-    if request.method=='POST':
-        print("hii")
+    if request.method=='POST':  #if policy renewed. New date is updated
         duration = request.POST.get('renew')
-        profile.duration=int(duration)
-        # return render(request,'renew.html')
-        profile.policy_start_date=timezone.now().date()
+        profile.duration=int(duration)  #changing the duration as user specified
+        profile.policy_start_date=timezone.now().date() # changing the policy date to current date
         profile.save()
         return redirect('homepage:home')
-    user_details=request.session['user_summary']
-    llm_output = get_renew_details("suraksha",user_details=user_details)
+    
+    user_details=request.session['user_summary']   #renewal bonus for user from llm model
+    llm_output = get_renew_details("suraksha",user_details=user_details) # function at -> helpdesk/llm_utils.py
+    safe_output = mark_safe(llm_output)
     # formatted_output = llm_output.strip()
     # renewal= formatted_output.replace('* ', '\n* ').replace('\n\n', '\n')
-    return render(request,'renew.html',{'renew':llm_output})
+    return render(request,'renew.html',{'renew':safe_output})

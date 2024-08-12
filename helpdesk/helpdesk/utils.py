@@ -49,9 +49,13 @@ def get_balance_date(start,dur):
     difference_in_years = difference.years
     difference_in_months = difference.months + difference_in_years * 12
     if difference_in_years == 0:
+        if difference_in_months==1:
+            return f"{difference_in_months} month only"
         return f"{difference_in_months} months only"
     else:
-        return f"{difference_in_years} years "
+        if difference_in_years==1:
+            return f"{difference_in_years} year to go"
+        return f"{difference_in_years} years to go"
     
 
 def get_renew_details(policy_name,user_details):
@@ -69,11 +73,11 @@ def get_renew_details(policy_name,user_details):
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful health insurance patient helpdesk bot.You are approprite renewal bonuses content from policy document.User will provide their profile summary based on the summary and the content, Explain the renewal bonuses for the user. Add br tag at approprite places.",
+                "content": "You are a helpful health insurance patient helpdesk bot.You are approprite renewal bonuses content from policy document.User will provide their profile summary based on the summary and the content, Explain the renewal bonuses for the user with html tags.",
             },
             {
                 "role":"system",
-                "content":"Only explain the bonuses. Dont add unwanted texts like 'based on the details' , 'i will explain'   Add approprite <br> tag "
+                "content":" Important to note! : Must format the output in HTML with appropriate tags like <h4>, <p>, <ul>, and <li>. Only explain the bonuses. Dont add unwanted texts like 'based on the details' , 'i will explain'"
             },
             {
                 "role":"system",
@@ -89,37 +93,22 @@ def get_renew_details(policy_name,user_details):
     output=chat_completion.choices[0].message.content
     return output
 
-def get_addon_details(policy_name):
-    model_name = "sentence-transformers/all-mpnet-base-v2"
-    embeddings = HuggingFaceEmbeddings(model_name=model_name)
-    CHROMA_PATH='chroma\policies'
-    query_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings,collection_name=policy_name)
-    user_query= "Addon bonuses about the policy"
-    results = query_db.similarity_search_with_score(user_query, k=2)
-    context = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
-    print(context)
-    client = Groq(
-        api_key=groq_api,
-    )
-    chat_completion = client.chat.completions.create(
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful health insurance patient helpdesk bot. Provide an answer only to the asked query of the user based on the provided content of the insurance policy. Add br tag at approprite places.",
-            },
-            {
-                "role":"system",
-                "content":context
-            },
-            {
-                "role": "user",
-                "content": user_query,
-            },
-        ],
-        model="llama-3.1-70b-versatile",
-    )
-    output=chat_completion.choices[0].message.content
-    print(output) 
-    return output
+
+
+def get_claim_summary(request,claim_history):
+    user=request.user
+    profile=user.profile
+    claimable_amt = profile.total_amount
+    claims_summary=""
+    claim_count=0
+    for claims in claim_history:
+        claim_count+=1
+        claimable_amt-=claims.amount_claimed
+        claims_summary+=f" Claim ID ->{claims.claim_id} , Claim-date->{claims.claim_date}, Claim-amt ->{claims.amount_claimed} , Treatment Info -> {claims.treatment_info} \n"
+    
+    claims_summary=f"Number of claims made by the user is {claim_count} \n"+claims_summary
+    return (claims_summary,claimable_amt)
+
+
 
 
