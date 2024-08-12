@@ -91,20 +91,6 @@
         "link" : "https://drive.google.com/file/d/1teekXCQNrQPnDsCg-VxvepOyiV4EGEJt/view?usp=sharing",
         "lacking": "No Bonus for being healthy and not claiming insurance"
     },
-    
-    "healthcompanion" : {
-        "features" : ["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"],
-        "summary":"Health companion is one of Niva Bupa (Max Bupa)'s most popular product. And for good reason. It covers most bases. It's economical. It doesn't have any unsavoury conditions. And it offers a whole host of benefits that are particularly useful. The only downside - Niva Bupa (Max Bupa) might just have a better product now and its called ReAssure. You might want to check that out.",
-        "link":"https://drive.google.com/file/d/1zz4XJO9mlxnlJqGkd5bdCbW8GemPkKpU/view?usp=drive_link"
-    },
 
     "heartbeatgold" : {
         "features" : ["You'll never have to split the bill",
@@ -139,108 +125,7 @@
             "link": "https://drive.google.com/file/d/1h0O_7QzpD5Qv6uhi0NGKIFBcEgR2iQUm/view?usp=drive_link"
         }, 
 
-    "healthpremiaplatinum": {
-        "features": ["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Short waiting period for Pre Existing Diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine",
-            "Maternity benefits offered",
-            "Doctor consultations covered"],
-        "summary" : "Health Premia Platinum policy is for the Ultra rich. No, seriously. It offers a gigantic cover ranging from 1 Crore to 3 Crore. It pays for regular outpatient consultations when you visit the doctor (up to 50,000). And it does things no other policy does. It truly is one of a kind.",
-        "link" : "https://drive.google.com/file/d/1iJgizkfLgjrZnyH4CeH7qldU0yal0XHl/view?usp=drive_link"
-         }, 
 
-    "healthpremiasilver": {
-        "features": ["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Short waiting period for Pre Existing Diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Covers Alternative Medicine",
-            "Maternity benefits offered"],
-            "link":"https://drive.google.com/file/d/1iJgizkfLgjrZnyH4CeH7qldU0yal0XHl/view?usp=drive_link",
-            "summary" : "Health Premia Silver is a great policy. If offers comprehensive protection. Its coverage is adequate for most use cases. And if you are looking to cover maternity this can be an option. The only catch is that this policy is pretty expensive compared to other policies in its class."
-        }, 
-
-    "healthpremiagold": {
-        "features": ["You'll never have to split the bill",
-            "You can pick any room.",
-            "You always have full cover irrespective of the disease",
-            "Short waiting period for Pre Existing Diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine",
-            "Maternity benefits offered"],
-            "summary":"Health Premia Gold covers most bases. If offers comprehensive protection. Its coverage is more than adequate. And if you travel internationally often, then they'll even cover you abroad. Also, you can avail international treatments for certain critical illnesses like Cancer. The only catch is that this policy is much more expensive than other policies in its class.",
-            "link":"https://drive.google.com/file/d/1iJgizkfLgjrZnyH4CeH7qldU0yal0XHl/view?usp=drive_link"
-        }, 
-
-    "reassure2.0titanium+":{
-        "features": ["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Carry forward your unutilized cover",
-            "Free Health Checkups",
-            "Covers Alternative Medicine",
-            "Full coverage even if you are forced to hospitalize at home"],
-            "summary":"Much like ReAssure, ReAssure 2.0 Titanium+ seems like it is the best policy in its class. Its economical. It covers most bases. It doesn't have outrageous conditions. And it offers a whole host of benefits including forever restoration (as described below), the best bonus cover package (among all ReAssure plans) and age-lock feature (as described below once again). Unfortunately, the aggressive pricing means that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low. Can they do it? We don't know.",
-            "link":"https://drive.google.com/file/d/1YWsqHIm5okLexH54xnb-VrSyDSQgZ3xL/view?usp=drive_link"
-        }, 
-
-    "reassure":{
-        "features":["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered",
-            "Special Bonus for being healthy and not claiming insurance",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"],
-            "summary":"On the face of it, ReAssure is the best policy in its class. Its economical. It covers most bases. It doesn't have outrageous conditions. And it offers a whole host of benefits including unlimited restoration. Meaning every time you're hospitalized they'll restore the cover amount in full. Unfortunately, the aggressive pricing means that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low. Can they do it? We don't know.",
-            "link":"https://drive.google.com/file/d/1YWsqHIm5okLexH54xnb-VrSyDSQgZ3xL/view?usp=drive_link"
-        }, 
-
-    "reassure2.0bronze+": {
-        "features":["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups",
-            "Covers Alternative Medicine",
-            "Full coverage even if you are forced to hospitalize at home"],
-            "lack":"Long waiting period for pre-existing diseases",
-            "summary":"Much like ReAssure, ReAssure 2.0 Bronze+ seems like it is the best policy in its class. Its economical. It covers most bases. It doesn't have outrageous conditions. And it offers a whole host of benefits including forever restoration (as described below). Unfortunately, the aggressive pricing means that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low. Can they do it? We don't know.",
-            "link":"https://drive.google.com/file/d/1YWsqHIm5okLexH54xnb-VrSyDSQgZ3xL/view?usp=drive_link"
-        }, 
-
-    "healthrechargesupertop-up":{
-        "features":["you'll never have to split the bill",
-            "Your insurer won't pay the full bill for certain diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered","Some Cover for Alternative Medicine",
-            "You can pick a Single Private room but nothing fancy",
-            "Short waiting period for Pre Existing Diseases"],
-            "summary":"A Super Top Up plan that does what you expect most super top plans to do. It covers most bases, allows you to top up your cover by 95 lakhs and it is one of the most economical options out there",
-            "link":"https://drive.google.com/file/d/1UsgfAUziQvQlLeH7IbHXGr_xMe2T0ouG/view?usp=drive_link"
-        }, 
 
     "healthpulseclassic":{
         "features":["You'll never have to split the bill",
@@ -289,69 +174,6 @@
                 "summary":"Niva Bupa Senior First Platinum is an exclusive plan built for senior citizens (those above 60 and under 75) and and it's slightly more robust than the Gold variant. The upside is that you may qualify for this plan when you may not qualify anywhere else. The downside is that like most senior citizen plans, they come with restrictions on room rent allocation, and sub-limits on a few surgeries. There's also the fact that Niva Bupa's complaints volume has been a bit of concern for prospective buyers.",
                 "link":"https://drive.google.com/file/d/1WLMQLFxMEb0Md2sC6MZ-C_j0KVn70hLy/view?usp=drive_link"
         }, 
-
-    "aspiregold+":{
-        "features":["Restoration Forever",
-            "You'll never have to split the bill",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Carry forward your unutilized cover",
-            "Free Health Checkups",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine",
-            "You can pick a Single Private room but nothing fancy",
-            "Maternity benefits offered"],
-            "summary":"Aspire Gold+ is the most basic variant with Niva Bupa's Aspire lineup. Although it has a new-age maternity benefit, and an updated bonus feature, it also has its fair share of restrictions including limiting you to a single private room during hospitalization, a waiting period for pre-existing diseases that spans up to 4 years, and a maternity benefit that also comes with waiting periods of upto 4 years. We wouldn't recommend buying this plan unless you're really looking for a budget option.",
-            "link":"https://drive.google.com/file/d/1Z6xQkxrojZu8M8ryXIiOsGXIBJxjmc-_/view?usp=drive_link"
-        }, 
-
-    "aspirediamond+":{
-        "features":["Age Lock Benefit",
-            "You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups",
-            "Covers Alternative Medicine",
-            "Full coverage even if you are forced to hospitalize at home"],
-            "summary":"Aspire Diamond +Aspire Diamond+ is a feature rich variant within Niva Bupa's Aspire stable. The plan extends features like Age Lock, a new updated bonus structure, maternity benefits with a 2-year waiting and other new-age add-ons like Fast Forward, Future Protect, and Cashbag features (as described below). But that's not all, the plan is available at a reasonable price too. Unfortunately, this aggressive pricing means that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low. Can they do it? We don't know.",
-            "link":"https://drive.google.com/file/d/1Z6xQkxrojZu8M8ryXIiOsGXIBJxjmc-_/view?usp=drive_link"
-
-        }, 
-
-    "aspiretitanium+":{
-        "features":["Age Lock Benefit",
-            "You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups",
-            "Covers Alternative Medicine", 
-            "Full coverage even if you are forced to hospitalize at home"],
-            "summary":"Aspire Titanium+ is the most premium variant within Niva Bupa's Aspire stable. It's has some very cool features like age lock, Fast Forward, Future Protect, and Cashbag (as described below). And some of these benefits are slightly more comprehensive than Platinum+. The only problem here is that the aggressive pricing will mean that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low.",
-            "link":"https://drive.google.com/file/d/1Z6xQkxrojZu8M8ryXIiOsGXIBJxjmc-_/view?usp=drive_link"
-        }, 
-
-    "aspireplatinum+":{
-        "features":["Age Lock Benefit",
-            "You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Unlimited Restoration Benefit",
-            "Day Care treatments covered",
-            "Free Health Checkups",
-            "Covers Alternative Medicine", 
-            "Full coverage even if you are forced to hospitalize at home"],
-            "summary":"Aspire Platinum+ is an extremely feature rich variant within Niva Bupa's Aspire stable. It's very similar to Diamond+ in that it has some very cool features like age lock, Fast Forward, Future Protect, and Cashbag (as described below). But the big difference is that it extends maternity benefits with a waiting period of just 9 months as opposed to 24 months in Diamond+. Also the plan is fairly affordable. Which begs the question - Will the aggressive pricing mean that Niva Bupa has the tough task of paying out ever larger claims while also managing to keep prices low.",
-            "link":"https://drive.google.com/file/d/1Z6xQkxrojZu8M8ryXIiOsGXIBJxjmc-_/view?usp=drive_link"
-    }, 
 
     "caresupreme" : {
         "features" : ["You'll never have to split the bill", 

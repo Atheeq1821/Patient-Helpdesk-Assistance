@@ -1,4 +1,7 @@
-groq_api="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"
+import os
+from dotenv import load_dotenv
+load_dotenv()
+groq_api = os.getenv('GROQ_API_KEY')
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from groq import Groq

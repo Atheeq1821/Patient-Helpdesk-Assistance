@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
             {text: 'Care Plus Youth', value: 'careplusyouth'},
             {text: 'Care Heart', value: 'careheart'},
             {text: 'Care Classic', value: 'careclassic'}
+        ],
+        nivabupa:[
+            {text: 'Go Active', value:'goactive'},
+            {text: 'HeartBeat Gold', value:'heartbeat'},
+            {text: 'Health Pulse' , value:'healthpulse'},
+            {text: 'Senior First', value:'seniorfirstgold'},
+        ],
+        bajajallianz:[
+            {text:"Health Guard", value:'healthguardsilver'},
+            {text:"Health Ensure Family", value:'healthensurefamily'},
+            {text:"Health Care Supreme", value:'healthcaresupreme'},
+            {text:"Silver Health", value:'healthguardplatinum'}
         ]
     };
 

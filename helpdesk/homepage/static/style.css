@@ -125,7 +125,9 @@ a {
     text-decoration: none;
     margin: 15px 0px;
 }
-
+#startdate-l{
+    position: static;
+}
 a.forgot {
     padding-bottom: 3px;
     border-bottom: 2px solid #EEE;

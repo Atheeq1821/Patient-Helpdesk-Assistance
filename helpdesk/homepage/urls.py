@@ -12,4 +12,5 @@ urlpatterns = [
     path('create_claim/', views.create_claim, name='create_claim'),
     path('delete_claim/<int:claim_id>/', views.delete_claim, name='delete_claim'),
     path('renew/',views.renew, name='renew'),
+    path('logout/', views.custom_logout, name='logout'),
 ]

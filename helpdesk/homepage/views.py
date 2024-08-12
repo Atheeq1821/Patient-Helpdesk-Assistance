@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect,get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -14,6 +14,14 @@ from helpdesk.llm_utils import *
 from django.conf import settings
 import json
 # Create your views here.
+
+def custom_logout(request):
+    logout(request)
+    request.session['user_summary'] = ""
+    print(f" logout - {request.session['user_summary']}")
+    return redirect('homepage:index')
+
+
 
 
 def index(request):   # Login and signup page view
@@ -102,6 +110,23 @@ def create_claim(request):
             treatment_info=treatment_info
         )
         claim.save()
+        claim_history=claim_view(request)
+        claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
+        user = request.user
+        profile=user.profile
+        expiry = get_balance_date(start=profile.policy_start_date, dur=profile.duration)
+        request.session['user_summary'] = get_user_summary(
+            name=profile.name,
+            age=profile.age,
+            policy=profile.policy_name,
+            type=profile.plan_type,
+            gender=profile.gender,
+            claims=claims_summary,
+            policy_start_date=profile.policy_start_date,
+            premium=profile.premium_monthly,
+            amt=profile.total_amount,
+            expiry=expiry)
+        print(f"Summary from create claim {request.session['user_summary']}")
         return redirect('homepage:home')
     return redirect('homepage:home')
 
@@ -116,7 +141,7 @@ def delete_claim(request, claim_id):
 
         claim_history=claim_view(request)
         claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
-        expiry = get_balance_date(expiry_date=profile.policy_start_date, duration=profile.duration)
+        expiry = get_balance_date(start=profile.policy_start_date, dur=profile.duration)
         request.session['user_summary'] = get_user_summary(
             name=profile.name,
             age=profile.age,
@@ -128,6 +153,7 @@ def delete_claim(request, claim_id):
             premium=profile.premium_monthly,
             amt=profile.total_amount,
             expiry=expiry)
+        print(f"Sumamry form delete  : {request.session['user_summary']}")
     return redirect('homepage:home')  
 
 
@@ -136,12 +162,13 @@ def delete_claim(request, claim_id):
 @login_required
 def home(request):
     if 'user_summary' not in request.session:  #user summary creation
+        print("inside session creation")
         request.session['user_summary'] = ""
     user = request.user
     hospital_list=[]
     profile = user.profile
 
-
+    print(f" Inside main - {request.session['user_summary']}")
     #network hospitals ->  helpdesk/utils.py
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
@@ -157,7 +184,7 @@ def home(request):
     claim_history=claim_view(request)
     #getting claim summary and claimable amount -> helpdesk/utils.py
     claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
-
+    
     #extracting policy summary from json file
     POLICY_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','policy.json')
     with open(POLICY_JSON_PATH, 'r',encoding='utf-8') as file:
@@ -207,6 +234,7 @@ def home(request):
         'policy_link': policy_details['link']
 
     }
+    # print(f"Summary form home {request.session['user_summary']}")
     return render(request,"home.html",context)
 
 

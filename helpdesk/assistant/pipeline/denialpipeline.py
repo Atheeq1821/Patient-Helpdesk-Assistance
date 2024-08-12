@@ -1,12 +1,15 @@
-groq_api="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"
+
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from groq import Groq
 from helpdesk.llm_utils import *
+import os
+from dotenv import load_dotenv
+load_dotenv()
+groq_api = os.getenv('GROQ_API_KEY')
+
 model_name = "sentence-transformers/all-mpnet-base-v2"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
-
-
 def denial_assist(user_details,policy_name,user_denial):
 
     client = Groq(
