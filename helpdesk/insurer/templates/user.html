@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurer Protal</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'user.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+</head>
+    <body>
+        <nav id="navbar">
+            <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
+            <div class="nav-cont"> <a href="{% url 'homepage:home' %}">Home</a></div>
+            <div class="nav-cont"><a href="{% url 'insurer:show_claims' %}">Search Claims</a></div>
+            <ul>
+                <!-- <li>login</li> -->
+                <li> logout</li>
+            </ul>
+        </nav>
+        <section class="user-section">
+            <h2>Search Users</h2>
+            <div class="filter_div">
+                <div>
+                    <input type="text" placeholder="Search with user id" name="filteruser" id="filteruser"/>
+                    <button id="filterBtn" onclick="filterUserID()">Filter</button>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search by policy ID" name="filterpolicy" id="filterpolicy"/>
+                    <button id="filterBtn" onclick="filterpolicyname()">Filter</button>
+                </div>
+            </div>
+            <table class="utable">
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Age</th>
+                    <th>Policy Name</th>
+                    <th>Plan Type</th>
+                    <th>Endrolled Date</th>
+                    <th>Claimable Amount</th>
+                    <th>No. of claims</th>
+                </tr>
+            </table>
+        </section>
+    </body>
+    <script type="text/javascript">
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'user.js' %}"></script>
+</html>

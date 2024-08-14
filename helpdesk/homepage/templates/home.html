@@ -75,32 +75,6 @@
                 {% endfor %}
             </ul>
             <h4 class="claimable"><span class="claimable-title">Total Claimable : </span> ₹{{claimable_amt}} </h4>
-            <button id="add-claim-btn">Add Claim</button>
-
-    <!-- Add Claim Form -->
-            <div id="add-claim-form" style="display: none;">
-                <h2>Add New Claim</h2>
-                <form method="post" class="claim-form" action="{% url 'homepage:create_claim' %}">
-                    {% csrf_token %}
-                    <div>
-                        <label for="claim-date">Claim Date:</label>
-                        <input type="date" id="claim-date" name="claim_date" class="claim-input-class" placeholder="Enter claim date..." required>
-                    </div>
-                    
-                    <div>
-                        <label for="amount-claimed">Amount Claimed:</label>
-                        <input type="number" id="amount-claimed" name="amount_claimed" class="claim-input-class" placeholder="Enter amount claimed..." required>
-                    </div>
-                    
-                    <div>
-                        <label for="treatment-info">Treatment Information:</label>
-                        <input type='text' id="treatment-info" name="treatment_info" class="claim-input-class" placeholder="Enter treatment information..." required></input>
-                    </div>
-                    
-                    <button type="submit" id='claim-submit'>Submit</button>
-                </form>
-            </div>
-        </div>
     </section>
     <section class="imp-sect">
         <h3 class="hidden">Features of your policy</h3>

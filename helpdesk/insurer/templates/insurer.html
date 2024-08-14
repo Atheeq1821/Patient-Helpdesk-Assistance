@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurer Protal</title>
+    <link rel="stylesheet" href="{% static 'insurer.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+</head>
+<body>
+    <nav id="navbar">
+        <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
+        <div class="nav-cont"> <a href="{% url 'insurer:show_users' %}">Search Users</a></div>
+        <div class="nav-cont"><a href="{% url 'homepage:network_hospitals' %}">Search Claims</a></div>
+        <ul>
+            <!-- <li>login</li> -->
+             <li> logout</li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <div class="title-div">
+            <h1 id="title">{{insurer_name}} INsurer Portal</h1>
+        </div>
+        <div class="analysis">
+            <div class="ana-element">
+                <h5 class="ana-ele-head">Number of Policies</h5>
+                <div class="count">{{policies}}</div>
+            </div>
+            <div class="ana-element">
+                <h5 class="ana-ele-head">Number of Users</h5>
+                <div class="count">{{members}}</div>
+            </div>
+            <div class="ana-element">
+                <h5 class="ana-ele-head">Number of Claims</h5>
+                <div class="count">{{claims}}</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -56,7 +56,6 @@ footer mark {
     opacity: 0;
     overflow-y: auto;
     z-index: 1;
-    height: 100%;
 }
 
 .sign-in-container {
@@ -79,13 +78,14 @@ form {
     align-items: center;
     justify-content: center;
     padding: 20px 50px;
+    width: 100%;
 }
-.scroll-div{
+/* .scroll-div{
     width: 90%;
     height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
-}
+} */
 h1 {
     color: black;
 }
@@ -125,9 +125,7 @@ a {
     text-decoration: none;
     margin: 15px 0px;
 }
-#startdate-l{
-    position: static;
-}
+
 a.forgot {
     padding-bottom: 3px;
     border-bottom: 2px solid #EEE;
@@ -215,7 +213,11 @@ button ,.fbtn{
 
 .overlay-panel h1 {
     color: #fff;
+    
 }
+/* .overlay-left h1{
+    font-size: 25px;
+} */
 
 p {
     font-size: 14px;

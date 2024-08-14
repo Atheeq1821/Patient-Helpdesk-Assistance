@@ -18,87 +18,26 @@
         <div class="container" id="container">
             <div class="form-container sign-up-container">
                 
-                <form action="{% url 'homepage:signup' %}" id="sign-up-form" method="POST">
+                <form action="{% url 'homepage:insurer_login' %}" id="sign-up-form" method="POST">
                     {% csrf_token %}
-                    <h1 class="block-h1">Member Signup</h1>
-                    <div class="scroll-div">
+                    <h1 class="block-h1">Call Center Login</h1>
                         <div class="infield">
-                            <input type="text" placeholder="Enter Your Name" name="fullname"/>
+                            <input type="text" placeholder="Enter insurer..." name="cc-id"/>
                             <label></label>
                         </div>
                         <div class="infield">
-                            <input type="email" placeholder="Email" name="email" />
+                            <input type="email" placeholder="Email" name="cc-email" />
                             <label></label>
                         </div>
                         <div class="infield">
-                            <input type="password" placeholder="Password" name='pass'/>
+                            <input type="password" placeholder="Password" name='cc-pass'/>
                             <label></label>
-                        </div>
-                        <div class="infield">
-                            <select name="options" class="gender">
-                                <option value="" disabled selected>Choose a gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="number" placeholder="Enter your age" name='age'>                        
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="tel" placeholder="Contact number" name='phone'>                        
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="text" placeholder="Pincode" name='pincode'>  
-
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <!-- <input type="text" placeholder="Insurer Name" name='insurer'>   -->
-                            <select class="insurer gender" name="insurer" id="insurer_dd">
-                                <option value="" disabled selected>Choose an insurer</option>
-                                <option value="hdfc">HDFC</option>
-                                <option value="care">Care</option>
-                                <option value="nivabupa">Niva Bupa</option>
-                                <option value="bajajallianz">Bajaj Allianz</option>
-                            </select>                      
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <!-- <input type="text" placeholder="Policy Name" name='policyname'>  -->
-                            <select name="policyname" id="policy_dd" class="gender">
-                                <option value="" disabled selected>Choose your Policy</option>
-                            </select>                       
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="text" placeholder="Plan Type" name='policytype'>                        
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <label id="startdate-l">Enter Start Date</label>
-                            <input type="date" placeholder="Policy Start Date" name='startdate'>                        
-                            
-                        </div>
-                        <div class="infield">
-                            <input type="number" placeholder="Duration of the Plan" name='duration'>                        
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="number" placeholder="Monthly Premium" name='premium'>                        
-                            <label></label>
-                        </div>
-                        <div class="infield">
-                            <input type="number" placeholder="Total Insurance Amount" name='amt'>                        
-                            <label></label>
-                        </div>
+                        
                         {% if signup_error_message %}
-                        <p style="color: red;" class="forgot">{{ signup_error_message }}</p>
+                        <p style="color: red;" class="forgot">{{ login_error_message }}</p>
                     {% endif %}
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Login</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
@@ -123,14 +62,14 @@
             <div class="overlay-container" id="overlayCon">
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">
-                        <h1>Welcome Back!</h1>
-                        <p>To keep connected with us please login with your personal info</p>
+                        <h1>Policy Holder?</h1>
+                        <p>To keep connected with us please login with your credentials</p>
                         <button>Sign In</button>
                     </div>
                     <div class="overlay-panel overlay-right">
-                        <h1>Hello, There!</h1>
-                        <p>Enter your personal details and start journey with us</p>
-                        <button>Sign Up</button>
+                        <h1>Hello, Agent!</h1>
+                        <p>Access your gateway to customer information.</p>
+                        <button>Agent Login</button>
                     </div>
                 </div>
                 <button id="overlayBtn"></button>

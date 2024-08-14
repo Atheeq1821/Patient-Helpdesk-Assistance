@@ -1,0 +1,108 @@
+:root {
+    --base-color: #251840;
+    --bg-color: #6038ff;/* Define your base color */
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+body{
+    background: url('bg.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a{
+    text-decoration: none;
+    
+}
+.nav-cont{
+    font-weight: normal;
+}
+.nav-cont a{
+    font-size: 20px;
+    padding: 9px 12px;
+    border-radius: 5px;
+    transition: color 0.3s;
+    transition: background-color 0.5s;
+    color: #1f1f20;
+}
+.nav-cont a:hover{
+    background-color: var(--bg-color);
+    color: white;
+}
+
+    nav{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        padding: 30px 40px 30px 40px;
+        justify-content: space-between;
+        transition: background-color 0.3s; 
+        z-index: 1000;
+    }
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(8px);
+}
+
+.cts img{
+    width: 141px;
+}
+
+#title{
+    text-transform: uppercase;
+    color: var(--base-color);
+
+
+}
+.title-div{
+    width: fit-content;
+    margin: 0px auto;
+    margin-bottom: 30px;
+}
+.hero{
+    margin-top: 7%;
+    margin: 15% 5% 30px 5%;
+    font-size: 40px;
+    height: 65vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.analysis{
+    display: flex;
+    justify-content: space-between;
+}
+.ana-element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.ana-ele-head{
+    font-weight: 400;
+}
+.count{
+    background-color: var(--bg-color);
+    font-size: 70px;
+    padding: 0px 30px;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: white;
+    box-shadow: 5px 5px 2px #251840;
+    transition: box-shadow 0.3s;
+}
+.count:hover{
+    box-shadow: 0px 0px 0px black;
+}

@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "homepage",
-    "assistant"
+    "assistant",
+    "insurer"
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'homepage/static'),
     os.path.join(BASE_DIR, 'assistant/static'),
+    os.path.join(BASE_DIR, 'insurer/static'),
 ]
 
 

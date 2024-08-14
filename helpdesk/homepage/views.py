@@ -48,6 +48,27 @@ def signin(request):
 
     return redirect('homepage:index')
 
+def insurer_login(request):
+    if request.method=='POST':
+        insurer=request.POST.get('cc-id')
+        email=request.POST.get('cc-email')
+        password=request.POST.get('cc-pass')
+        try:
+            user = authenticate(request, username=insurer, password=password)
+        except User.DoesNotExist:
+            user = None
+        if user is not None:
+            login(request, user)
+            return redirect('insurer:insurer')
+        else:
+            context = {
+                'login_error_message': 'Invalid email or password.'
+            }
+            return render(request, 'index.html', context)
+
+    return redirect('homepage:index')
+
+
 
 def signup(request):
     if request.method=='POST':
@@ -275,3 +296,4 @@ def renew(request):   #view for renew bonus page
     # formatted_output = llm_output.strip()
     # renewal= formatted_output.replace('* ', '\n* ').replace('\n\n', '\n')
     return render(request,'renew.html',{'renew':safe_output})
+

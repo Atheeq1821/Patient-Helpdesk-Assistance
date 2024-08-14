@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurer Protal</title>
+    <link rel="stylesheet" href="{% static 'claims.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+</head>
+    <body>
+        <nav id="navbar">
+            <div class="cts"> <img src="logo.png" alt=""></div>
+            <div class="nav-cont"> <a href="{% url 'homepage:home' %}">Home</a></div>
+            <div class="nav-cont"><a href="{% url 'homepage:network_hospitals' %}">Search Claims</a></div>
+            <ul>
+                <!-- <li>login</li> -->
+                <li> logout</li>
+            </ul>
+        </nav>
+        <section class="claim-section">
+            <h2>Search Claims</h2>
+            <div class="filter_div">
+                <div>
+                    <input type="text" placeholder="Search with user id" name="user_id" id="filter"/>
+                    <button id="filterBtn">Filter</button>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search by policy ID" name="policy_id" id="filter"/>
+                    <button id="filterBtn">Filter</button>
+                </div>
+            </div>
+            <table class="utable">
+                <tr>
+                    <th>Claim ID</th>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Policy_ID</th>
+                    <th>Applied Date</th>
+                    <th>Claimed Date</th>
+                    <th>Hospital Name</th>
+                    <th>Claimed Amount</th>
+                    <th>Claim Info</th>
+                </tr>
+                <tr>
+                    <td>12345</td>
+                    <td>1234567890</td>
+                    <td>John Doe</td>
+                    <td>12-08-2024</td>
+                    <td>13-08-2024</td>
+                    <td>ABC Hospital</td>
+                    <td>10000</td>
+                    <td>General Medical</td>
+                </tr>
+            </table>
+        </section>
+    </body>
+</html>
