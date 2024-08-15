@@ -64,11 +64,6 @@
                         <span class="claim-title">Date:</span>{{ claim.claim_date }} |
                         <span class="claim-title"> Amount:</span> ₹ {{ claim.amount_claimed }} | 
                         <span class="claim-title">Treatment Info:</span> {{ claim.treatment_info|slice:":20" }}
-
-                        <form action="{% url 'homepage:delete_claim' claim.claim_id %}" method="post" class="deleteform">
-                            {% csrf_token %}
-                            <button type="submit" class="dlt-btn">Delete Claim</button>
-                        </form>
                     </li>
                 {% empty %}
                     <li class="claim-elements">No claims found.</li>

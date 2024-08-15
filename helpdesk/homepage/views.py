@@ -4,7 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.http import HttpResponse
+import random
 import os
+from datetime import datetime, timedelta
+from decimal import Decimal
 from .models import Profile,Claim
 from django.utils.dateparse import parse_date
 from django.contrib.auth.decorators import login_required
@@ -21,10 +24,149 @@ def custom_logout(request):
     print(f" logout - {request.session['user_summary']}")
     return redirect('homepage:index')
 
+def delete_all_users():
+    users_with_profiles = User.objects.filter(profile__isnull=False)
+    users_with_profiles.delete()
+    print("All users with profiles have been deleted.")
 
 
+from dateutil.relativedelta import relativedelta
+def generate_claims():
+    profiles = Profile.objects.all()
+    treatment_info_samples = [
+        "Heart surgery", "Kidney transplant", "Cancer treatment", 
+        "Fracture repair", "Diabetes management", "Orthopedic surgery", 
+        "Neurology treatment", "Liver transplant", "Gastric bypass surgery", "ENT treatment"
+        ]
+    min_days_before_policy_expiry = 70
+    for profile in profiles:
+        pin = profile.pincode
+        insurer = profile.insurer
+        hospitals =Hospitals()
+        hospital_list = hospitals.network_hospitals(table_name=insurer, pincode=pin)
+        hospital_names =[item[0] for item in hospital_list]
+        hospital_names.append('Pavitra hospital')
 
+        num_claims = random.randint(2, 10)
+        policy_expiry = profile.policy_start_date + relativedelta(years=profile.duration)
+
+
+        for j in range(num_claims):
+            if profile.claimable_amt>=5000:
+                claimable_amt_float = float(profile.claimable_amt)
+                claim_amount = Decimal(abs(round(random.uniform(5000, claimable_amt_float), 2)))
+                potential_applied_date = policy_expiry - timezone.timedelta(days=min_days_before_policy_expiry)
+                applied_date = min(potential_applied_date, timezone.now().date())
+                claim_date = applied_date + timezone.timedelta(days=random.randint(2, 3)) 
+                claim = Claim(
+                user=profile.user,
+                applied_date=applied_date,
+                claim_date = claim_date,
+                hospital_name=random.choice(hospital_names),
+                amount_claimed=claim_amount,
+                treatment_info=random.choice(treatment_info_samples)
+                )
+                claim.save()
+                print(f"{j} of {profile.user}")
+    print("Multiple claims have been created for all profiles, with applied dates 70 days before the policy expiry.")
+
+
+def generate_users():
+    insurer_policies = {
+    'hdfc': ['energy', 'suraksha', 'medisure', 'optimasecure'],
+    'care': ['care', 'caresupreme', 'caresenior', 'careyouthplus', 'careheart', 'careclassic'],
+    'nivabupa': ['goactive', 'heartbeat', 'healthpulse', 'seniorfirstgold'],
+    'bajajallianz': ['healthguardsilver', 'healthensurefamily', 'healthcaresupreme', 'healthguardplatinum']
+    }
+    plan_types = ['individual', 'gold', 'silver', 'family', 'platinum']
+    pincodes = ['600001', '600020', '600017', '600112', '600025', '600032', '600040', '600008', '600118', '600110']
+    names = [
+    "Arjun", "Siva", "Ravi", "Lakshmi", "Nandini", "Kumar", "Anjali", "Rajesh", "Meera", "Vijay",
+    "Prakash", "Sneha", "Ajay", "Geetha", "Ramesh", "Madhavi", "Deepak", "Sonia", "Amit", "Neha",
+    "Vikram", "Pooja", "Anand", "Swathi", "Manoj", "Kavita", "Sunil", "Dhileep", "Meena", "Sandeep",
+    "Nisha", "Kiran", "Venu", "Jaya", "Lalitha", "Suresh", "Divya", "Banu", "Rajini", "Krishna",
+    "Rupa", "Harish", "Archana", "Anil", "Rajalakshmi", "Srinivasan", "Latha", "Karthik", "Naveen", "Rani",
+    "Suman", "Shivani", "Siddharth", "Bhavna", "Raj", "Aruna", "Gaurav", "Asha", "Sanjay", "Rekha",
+    "Gita", "Siddhi", "Ajit", "Jayanthi", "Nikhil", "Anita", "Krishnan", "Neelam", "Sumanth", "Shweta",
+    "Nitin", "Sunita", "Rajeshwari", "Manju", "Shankar", "Sita", "Sushila", "Deepa", "Maya", "Arun",
+    "Sridhar", "Jyothi", "Rajendra", "Pallavi", "Kavitha", "Sushma", "Ravi Kumar", "Rohit", "Madhuri", "Aarti",
+    "Rajesh", "Amitabh", "Vandana", "Ganga", "Sangeeta", "Haritha", "Bhargav", "Chitra", "Vinod", "Sushil"
+    ]
+    genders = [
+    "Male", "Male", "Male", "Female", "Female", "Male", "Female", "Male", "Female", "Male",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female",
+    "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female"
+    ]
+    ages = [
+    25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
+    35, 36, 37, 38, 39, 40, 41, 42, 43, 44,
+    45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
+    55, 56, 57, 58, 59, 60, 61, 62, 63, 64,
+    65, 66, 67, 68, 69, 70, 25, 26, 27, 28,
+    29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+    39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
+    49, 50, 51, 52, 53, 54, 55, 56, 57, 58,
+    59, 60, 61, 62, 63, 64, 65, 66, 67, 68,
+    69, 70
+    ]
+    start_date = datetime(2020, 1, 1)
+    end_date = datetime.now()
+    for i in range(6,100):
+        username = names[i]
+        e_n=username.lower()
+        email = f"{e_n}@gmail.com"
+        password = "12345"
+        # Create user
+        user = User.objects.create_user(username=username, email=email, password=password)
+
+        # Randomly select insurer and corresponding policy
+        insurer = random.choice(list(insurer_policies.keys()))
+        policy_name = random.choice(insurer_policies[insurer])
+
+        # Randomly select plan type (with 'individual' more frequently)
+        plan_type = 'individual' if random.random() > 0.5 else random.choice(plan_types)
+
+        # Randomly select a pincode from Tamil Nadu
+        pincode = random.choice(pincodes)
+        amt=round(random.uniform(100000, 10000000), 2)
+        # Create Profile
+        profile = Profile(
+            user=user,
+            name=username,
+            age=ages[i],
+            gender=genders[i],
+            phone=f"98765{random.randint(10000, 99999)}",
+            pincode=pincode,
+            insurer=insurer,
+            policy_name=policy_name,
+            plan_type=plan_type,
+            policy_start_date=generate_random_date(start_date, end_date).date(),
+            duration=random.randint(1, 20),  # duration in years
+            premium_monthly=round(random.uniform(1000, 10000), 2),
+            total_amount=amt,
+            claimable_amt=amt,
+            claims=0
+        )
+        profile.save()
+        print(i)
+
+    print("10 users and their profiles have been created.")
+
+def generate_random_date(start_date, end_date):
+    """Generate a random date between start_date and end_date."""
+    delta = end_date - start_date
+    random_days = random.randint(0, delta.days)
+    return start_date + timedelta(days=random_days)
 def index(request):   # Login and signup page view
+    # generate_users()
+    # delete_all_users()
+    # generate_claims()
     return render(request,"index.html")
 
 
@@ -195,7 +337,7 @@ def home(request):
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
 
 
-    if profile.gender=='male':  #Name to be displayed on site
+    if profile.gender=='male' or profile.gender=='Male':  #Name to be displayed on site
         name="Mr. "+profile.name   
     else:
         name="Ms. "+profile.name

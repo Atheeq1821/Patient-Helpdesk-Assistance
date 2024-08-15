@@ -28,12 +28,12 @@
     <section class="content">
         <h3>Your renewal bonuses</h3>
         <p class="llm-content">{{renew}}</p>
-        <form id="renew-form" action="{% url 'homepage:renew' %}" method="post">
+        <!-- <form id="renew-form" action="{% url 'homepage:renew' %}" method="post">
             {% csrf_token %}
             <label for="renew">If renewed enter year</label>
             <input type="text" name="renew" id="renew" placeholder="Enter the duration">
             <button class="renewBtn" type="submit">Submit</button>
-        </form>
+        </form> -->
     </section>
 </body>
 <script src="{% static 'common.js' %}"></script>

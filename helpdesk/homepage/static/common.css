@@ -1,5 +1,7 @@
 
-
+a{
+  text-decoration: none;
+}
 .cursor-loading {
     cursor: progress !important;
   }

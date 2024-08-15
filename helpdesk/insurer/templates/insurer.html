@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insurer Protal</title>
     <link rel="stylesheet" href="{% static 'insurer.css' %}">
+    <link rel="stylesheet" href="{% static 'common.css' %}">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         
 </head>
@@ -13,10 +15,10 @@
     <nav id="navbar">
         <div class="cts"> <img src="{% static 'imgs\logo.png' %}" alt=""></div>
         <div class="nav-cont"> <a href="{% url 'insurer:show_users' %}">Search Users</a></div>
-        <div class="nav-cont"><a href="{% url 'homepage:network_hospitals' %}">Search Claims</a></div>
+        <div class="nav-cont"><a href="{% url 'insurer:show_claims' %}">Search Claims</a></div>
         <ul>
             <!-- <li>login</li> -->
-             <li> logout</li>
+             <li><a href="{% url 'homepage:logout' %}">Logout</a></li>
         </ul>
     </nav>
     <section class="hero">

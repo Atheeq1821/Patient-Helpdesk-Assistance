@@ -6,7 +6,7 @@ import mysql.connector
 from mysql.connector import Error
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
-
+from homepage.models import Claim
 
 
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
@@ -115,4 +115,7 @@ def get_claim_summary(request,claim_history):
 
 
 
+def claimable(curr):  #view to list all the claims made by the user
+    claims = Claim.objects.filter(user=curr.user)
+    return claims
 
