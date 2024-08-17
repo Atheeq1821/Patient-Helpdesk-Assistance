@@ -10,3 +10,6 @@ transformers
 langchain_chroma
 langchain_huggingface
 mysql.connector
+groq
+MySQL
+python-dotenv
