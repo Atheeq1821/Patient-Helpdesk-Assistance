@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from homepage.models import Profile,Claim
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+import os
 from django.http import JsonResponse
 # Create your views here.
 import json
@@ -18,7 +20,14 @@ def insurer(request):
         curr = mem.user
         curr_claim = Claim.objects.filter(user=curr).count()
         claims+=curr_claim
-    return render(request,'insurer.html',{'insurer_name':insurer_name,'claims':claims,'members':members,'policies':'4'})
+    INSURER_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','insurer.json')
+    with open(INSURER_JSON_PATH, 'r',encoding='utf-8') as file:
+        insurer_json_data = json.load(file)
+    policy_details=insurer_json_data[insurer_name] 
+    num_policies = len(policy_details)
+    # summary=policy_details['summary']
+    # contact = policy_details['contact']
+    return render(request,'insurer.html',{'insurer_name':insurer_name,'claims':claims,'members':members,'policies':num_policies})
 
 def show_users(request):
     

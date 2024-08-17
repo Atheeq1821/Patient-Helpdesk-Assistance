@@ -1,266 +1,287 @@
-    {
-        "healthguardsilver" : {
-        "features" : ["You most likely don't have to split the bill", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered"], 
-        "summary" : "Health Guard Silver is a decent policy and is definitely an economical option. But with a low cover (less than 2 lakhs) and restrictions on the kind of rooms you can pick, maybe you ought to consider other options. Health-Guard Gold perhaps?", 
-        "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link"
-    }, 
+{
+    "healthguardsilver" : {
+    "features" : ["You most likely don't have to split the bill", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered"], 
+    "summary" : "Health Guard Silver is a decent policy and is definitely an economical option. But with a low cover (less than 2 lakhs) and restrictions on the kind of rooms you can pick, maybe you ought to consider other options. Health-Guard Gold perhaps?", 
+    "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link",
+    "contact":"1800-225858"
+},  
 
-    "healthguardgold" : {
-        "features" : ["You most likely don't have to split the bill", 
-            "You can pick a Single Private room but nothing fancy", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered"], 
-        "summary" : "Health-Guard Gold is a pretty good policy. It covers most bases. It doesn't include outrageous conditions. It offers a whole host of benefits including coverage for maternity (after 6 years of buying the policy, of course). And it isn't pricey either. A solid pick overall.", 
-        "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link"
-
-    }, 
+"healthguardgold" : {
+    "features" : ["You most likely don't have to split the bill", 
+        "You can pick a Single Private room but nothing fancy", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered"], 
+    "summary" : "Health-Guard Gold is a pretty good policy. It covers most bases. It doesn't include outrageous conditions. It offers a whole host of benefits including coverage for maternity (after 6 years of buying the policy, of course). And it isn't pricey either. A solid pick overall.", 
+    "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link"
     
-    "healthguardplatinum" : {
-        "features" : ["You most likely don't have to split the bill", 
-            "You can pick a Single Private room but nothing fancy", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered"], 
-        "summary" : "Health-Guard Platinum is definitely pricey. But it offers a whole host of benefits. It covers most bases. It doesn't include outrageous conditions. And it includes coverage for maternity (after 6 years of buying the policy, of course). So you definitely get a lot at this price, but maybe consider health guard gold before you lock this one?", 
-        "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link"
+}, 
+
+"healthguardplatinum" : {
+    "features" : ["You most likely don't have to split the bill", 
+        "You can pick a Single Private room but nothing fancy", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered"], 
+    "summary" : "Health-Guard Platinum is definitely pricey. But it offers a whole host of benefits. It covers most bases. It doesn't include outrageous conditions. And it includes coverage for maternity (after 6 years of buying the policy, of course). So you definitely get a lot at this price, but maybe consider health guard gold before you lock this one?", 
+    "link" : "https://drive.google.com/file/d/11kjnRXVeTbDm6chEee_ukVYX0CGtWHzj/view?usp=drive_link",
+    "contact":" 044 - 24333668"
+},
+"healthcaresupremevital" : {
+    "features" : ["You'll never have to split the bill", 
+        "You can pick any room you like", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered", 
+        "Free Health Checkups every year", 
+        "Covers Alternative Medicine", 
+        "Doctor consultations covered"], 
+    "summary" : "Health Care Supreme Vital is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you some cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
+    "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+}, 
+
+"healthcaresupremesmart" : {
+    "features" : ["You'll never have to split the bill", 
+        "You can pick any room you like", 
+        "You always have full cover irrespective of the disease", 
+        "Short waiting period for Pre Existing Diseases", 
+        "Pre & Post hospitalization expenses covered", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered", 
+        "Free Health Checkups every year", 
+        "Covers Alternative Medicine", 
+        "Doctor consultations covered"], 
+    "summary" : "Health Care Supreme Smart is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you adequate cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
+    "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+}, 
+
+"healthcaresupremeultimo" : {
+    "features" : ["You'll never have to split the bill", 
+        "You can pick any room you like", 
+        "You always have full cover irrespective of the disease"], 
+    "summary" : "Health Care Supreme is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you more than adequate cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
+    "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+}, 
+
+"healthensurefamily" : {
+    "features" : ["You'll never have to split the bill", 
+        "You always have full cover irrespective of the disease", 
+        "Short waiting period for Pre Existing Diseases", 
+        "Pre & Post hospitalization expenses covered", 
+        "Day Care treatments covered"], 
+    "summary" : "It's a decent policy for your family and if any of you have pre-existing diseases (like diabetes), you can rest easy knowing that they'll cover complications arising out of these complications only after 2 years. But the policy does have a few unsavory conditions including limits on room rent. So you might want to read more.", 
+    "link" : "https://drive.google.com/file/d/1SWj5YrUmda1n088m6vbhFWbdw_mStem_/view?usp=drive_link",
+    "contact": "044 - 24333668"
+}, 
+"goactive" : {
+    "features" : ["You'll never have to split the bill",
+        "You can pick any room as you like",
+        "You always have full cover irrespective of the disease",
+        "Pre & Post hospitalization expenses covered",
+        "Day Care treatments covered",
+        "Free Health Checkups every year",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine"], 
+    "summary" : "GoActive is a decent policy with one other major selling point. It offers cover for outpatient consultations subject to certain conditions. And while you could find other policies with better features selling at a better price point, you could give it a go if you make frequent visits to a health clinic.", 
+    "link" : "https://drive.google.com/file/d/1teekXCQNrQPnDsCg-VxvepOyiV4EGEJt/view?usp=sharing",
+    "lacking": "No Bonus for being healthy and not claiming insurance",
+    "contact":" 044 - 24333668"
+},
+
+"heartbeatgold" : {
+    "features" : ["You'll never have to split the bill",
+        "You can pick any room so long as it's not a Suite",
+        "You always have full cover irrespective of the disease",
+        "Short waiting period for Pre Existing Diseases",
+        "Pre & Post hospitalization expenses covered",
+        "Good Restoration Benefit",
+        "Day Care treatments covered",
+        "Free Health Checkups every year",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine",
+        "Maternity benefits offered"],
+        "summary" : "Heartbeat Gold is a great policy. It offers comprehensive protection. Its coverage is more than adequate. It doesn't have outrageous conditions. The only catch is that its much more expensive than other policies in its class.",
+        "link":"https://drive.google.com/file/d/1h0O_7QzpD5Qv6uhi0NGKIFBcEgR2iQUm/view?usp=drive_link",
+        "contact":" 044 - 24333668"
     }, 
 
-    "healthcaresupremevital" : {
-        "features" : ["You'll never have to split the bill", 
-            "You can pick any room you like", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered", 
-            "Free Health Checkups every year", 
-            "Covers Alternative Medicine", 
-            "Doctor consultations covered"], 
-        "summary" : "Health Care Supreme Vital is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you some cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
-        "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+"heartbeatplatinum" : {
+    "features" : ["You'll never have to split the bill",
+        "You can pick any room you like",
+        "You always have full cover irrespective of the disease",
+        "Short waiting period for Pre Existing Diseases",
+        "Pre & Post hospitalization expenses covered",
+        "Good Restoration Benefit",
+        "Day Care treatments covered",
+        "Free Health Checkups every year",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine",
+        "Maternity benefits offered",
+        "Doctor consultations covered"],
+        "summary": "Heartbeat Platinum is a great policy. If offers comprehensive protection. Its coverage is more than adequate. It pays for regular outpatient consultations when you visit the doctor (up to a certain limit). And you can avail international treatment for certain critical illnesses like cancer. The only catch is that this policy is much more expensive than other policies in its class.",
+        "link": "https://drive.google.com/file/d/1h0O_7QzpD5Qv6uhi0NGKIFBcEgR2iQUm/view?usp=drive_link",
+        "contact":" 044 - 24333668"
     }, 
 
-    "healthcaresupremesmart" : {
-        "features" : ["You'll never have to split the bill", 
-            "You can pick any room you like", 
-            "You always have full cover irrespective of the disease", 
-            "Short waiting period for Pre Existing Diseases", 
-            "Pre & Post hospitalization expenses covered", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered", 
-            "Free Health Checkups every year", 
-            "Covers Alternative Medicine", 
-            "Doctor consultations covered"], 
-        "summary" : "Health Care Supreme Smart is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you adequate cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
-        "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+
+
+"healthpulseclassic":{
+    "features":["You'll never have to split the bill",
+        "You always have full cover irrespective of the disease",
+        "Pre & Post hospitalization expenses covered",
+        "Day Care treatments covered",
+        "Free Health Checkups every year",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine"],
+        "summary":"Health Pulse Classic is a decent policy and it's fairly economical. However, they will make you wait 4 years before they start covering pre-existing diseases (like diabetes). So do read the full draft below.",
+        "link":"https://drive.google.com/file/d/1TXKS2jEQWYld3nyYM4gHrpPf5xJeDql-/view?usp=drive_link",
+        "contact":" 044 - 24333668"
     }, 
 
-    "healthcaresupremeultimo" : {
-        "features" : ["You'll never have to split the bill", 
-            "You can pick any room you like", 
-            "You always have full cover irrespective of the disease"], 
-        "summary" : "Health Care Supreme is a great policy. It covers most bases. It doesn't have any outrageous conditions. It doesn't make you wait too long before covering pre-existing diseases. And it even offers you more than adequate cover for outpatient consultations. The only caveat is that it's a fairly expensive policy and we wouldn't fault you if you sought other alternatives.", 
-        "link" : "https://drive.google.com/file/d/1QLC383-0V2X0d45NC4hvuzhNjM1IXiB7/view?usp=drive_link"
+"healthpulseenhanced":{
+    "features":["You'll never have to split the bill",
+        "You always have full cover irrespective of the disease",
+        "Pre & Post hospitalization expenses covered",
+        "Day Care treatments covered",
+        "Free Health Checkups every year",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine"],
+        "summary":"Health Pulse Enhanced is a good policy. It doesn't have too many outrageous conditions and it offers a few extra benefits. However, they will make you wait 4 years before they start covering pre-existing diseases (like diabetes). So you might want to consider other alternatives.",
+        "link":"https://drive.google.com/file/d/1TXKS2jEQWYld3nyYM4gHrpPf5xJeDql-/view?usp=drive_link",
+        "contact":" 044 - 24333668"
     }, 
 
-    "healthensurefamily" : {
-        "features" : ["You'll never have to split the bill", 
-            "You always have full cover irrespective of the disease", 
-            "Short waiting period for Pre Existing Diseases", 
-            "Pre & Post hospitalization expenses covered", 
-            "Day Care treatments covered"], 
-        "summary" : "It's a decent policy for your family and if any of you have pre-existing diseases (like diabetes), you can rest easy knowing that they'll cover complications arising out of these complications only after 2 years. But the policy does have a few unsavory conditions including limits on room rent. So you might want to read more.", 
-        "link" : "https://drive.google.com/file/d/1SWj5YrUmda1n088m6vbhFWbdw_mStem_/view?usp=drive_link"
+"seniorfirstgold":{
+    "features":["You always have full cover irrespective of the disease",
+        "Short waiting period for Pre Existing Diseases",
+        "Pre & Post hospitalization expenses covered",
+        "Day Care treatments covered",
+        "Full coverage even if you are forced to hospitalize at home",
+        "Covers Alternative Medicine"],
+        "summary":"Niva Bupa Senior First Gold is an exclusive plan built for senior citizens (those above 60 and under 75) and as such, this is targeted at people who may not have the option to buy a health plan due to pre-existing conditions. The upside is that you may qualify for this plan when you may not qualify anywhere else. The downside is that like most senior citizen plans, they come with restrictions on room rent allocation, sub-limits on a few diseases and lack of bonus or restoration benefits. There's also the fact that Niva Bupa's complaints volume has been a bit of concern for prospective buyers.",
+        "link":"https://drive.google.com/file/d/1WLMQLFxMEb0Md2sC6MZ-C_j0KVn70hLy/view?usp=drive_link",
+        "contact":" 044 - 24333668"
     }, 
-    "goactive" : {
-        "features" : ["You'll never have to split the bill",
-            "You can pick any room as you like",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"], 
-        "summary" : "GoActive is a decent policy with one other major selling point. It offers cover for outpatient consultations subject to certain conditions. And while you could find other policies with better features selling at a better price point, you could give it a go if you make frequent visits to a health clinic.", 
-        "link" : "https://drive.google.com/file/d/1teekXCQNrQPnDsCg-VxvepOyiV4EGEJt/view?usp=sharing",
-        "lacking": "No Bonus for being healthy and not claiming insurance"
-    },
 
-    "heartbeatgold" : {
-        "features" : ["You'll never have to split the bill",
-            "You can pick any room so long as it's not a Suite",
-            "You always have full cover irrespective of the disease",
+"seniorfirstplatinum":{
+    "features":["You always have full cover irrespective of the disease",
             "Short waiting period for Pre Existing Diseases",
             "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
             "Day Care treatments covered",
-            "Free Health Checkups every year",
             "Full coverage even if you are forced to hospitalize at home",
             "Covers Alternative Medicine",
-            "Maternity benefits offered"],
-            "summary" : "Heartbeat Gold is a great policy. It offers comprehensive protection. Its coverage is more than adequate. It doesn't have outrageous conditions. The only catch is that its much more expensive than other policies in its class.",
-            "link":"https://drive.google.com/file/d/1h0O_7QzpD5Qv6uhi0NGKIFBcEgR2iQUm/view?usp=drive_link"
-        }, 
-
-    "heartbeatplatinum" : {
-        "features" : ["You'll never have to split the bill",
-            "You can pick any room you like",
-            "You always have full cover irrespective of the disease",
-            "Short waiting period for Pre Existing Diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Good Restoration Benefit",
-            "Day Care treatments covered",
             "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine",
-            "Maternity benefits offered",
-            "Doctor consultations covered"],
-            "summary": "Heartbeat Platinum is a great policy. If offers comprehensive protection. Its coverage is more than adequate. It pays for regular outpatient consultations when you visit the doctor (up to a certain limit). And you can avail international treatment for certain critical illnesses like cancer. The only catch is that this policy is much more expensive than other policies in its class.",
-            "link": "https://drive.google.com/file/d/1h0O_7QzpD5Qv6uhi0NGKIFBcEgR2iQUm/view?usp=drive_link"
-        }, 
-
-
-
-    "healthpulseclassic":{
-        "features":["You'll never have to split the bill",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"],
-            "summary":"Health Pulse Classic is a decent policy and it's fairly economical. However, they will make you wait 4 years before they start covering pre-existing diseases (like diabetes). So do read the full draft below.",
-            "link":"https://drive.google.com/file/d/1TXKS2jEQWYld3nyYM4gHrpPf5xJeDql-/view?usp=drive_link"
-        }, 
-
-    "healthpulseenhanced":{
-        "features":["You'll never have to split the bill",
-            "You always have full cover irrespective of the disease",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered",
-            "Free Health Checkups every year",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"],
-            "summary":"Health Pulse Enhanced is a good policy. It doesn't have too many outrageous conditions and it offers a few extra benefits. However, they will make you wait 4 years before they start covering pre-existing diseases (like diabetes). So you might want to consider other alternatives.",
-            "link":"https://drive.google.com/file/d/1TXKS2jEQWYld3nyYM4gHrpPf5xJeDql-/view?usp=drive_link"
-        }, 
-
-    "seniorfirstgold":{
-        "features":["You always have full cover irrespective of the disease",
-            "Short waiting period for Pre Existing Diseases",
-            "Pre & Post hospitalization expenses covered",
-            "Day Care treatments covered",
-            "Full coverage even if you are forced to hospitalize at home",
-            "Covers Alternative Medicine"],
-            "summary":"Niva Bupa Senior First Gold is an exclusive plan built for senior citizens (those above 60 and under 75) and as such, this is targeted at people who may not have the option to buy a health plan due to pre-existing conditions. The upside is that you may qualify for this plan when you may not qualify anywhere else. The downside is that like most senior citizen plans, they come with restrictions on room rent allocation, sub-limits on a few diseases and lack of bonus or restoration benefits. There's also the fact that Niva Bupa's complaints volume has been a bit of concern for prospective buyers.",
-            "link":"https://drive.google.com/file/d/1WLMQLFxMEb0Md2sC6MZ-C_j0KVn70hLy/view?usp=drive_link"
-        }, 
-
-    "seniorfirstplatinum":{
-        "features":["You always have full cover irrespective of the disease",
-                "Short waiting period for Pre Existing Diseases",
-                "Pre & Post hospitalization expenses covered",
-                "Day Care treatments covered",
-                "Full coverage even if you are forced to hospitalize at home",
-                "Covers Alternative Medicine",
-                "Free Health Checkups every year",
-                "Unlimited Restoration Benefit"],
-                "summary":"Niva Bupa Senior First Platinum is an exclusive plan built for senior citizens (those above 60 and under 75) and and it's slightly more robust than the Gold variant. The upside is that you may qualify for this plan when you may not qualify anywhere else. The downside is that like most senior citizen plans, they come with restrictions on room rent allocation, and sub-limits on a few surgeries. There's also the fact that Niva Bupa's complaints volume has been a bit of concern for prospective buyers.",
-                "link":"https://drive.google.com/file/d/1WLMQLFxMEb0Md2sC6MZ-C_j0KVn70hLy/view?usp=drive_link"
-        }, 
-
-    "caresupreme" : {
-        "features" : ["You'll never have to split the bill", 
-            "You can pick any room you like", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Full coverage even if you are forced to hospitalize at home", "Covers Alternative Medicine"], 
-        "summary" : "Care Supreme is a bargain at the price at which it's selling and while the waiting periods may seem a bit off putting considering the 4 years it mandates, you can cut this down to a mere 30 days for select conditions including Asthma, Hypertension, Diabetes, Hyperlipidimia. The only downside is that you have to tag along add-ons to unleash its true potential.", 
-        "link" : "https://drive.google.com/file/d/1UhdG9vukc-pFrkiBfh-6ynCLZLOtGH8G/view?usp=drive_link"
+            "Unlimited Restoration Benefit"],
+            "summary":"Niva Bupa Senior First Platinum is an exclusive plan built for senior citizens (those above 60 and under 75) and and it's slightly more robust than the Gold variant. The upside is that you may qualify for this plan when you may not qualify anywhere else. The downside is that like most senior citizen plans, they come with restrictions on room rent allocation, and sub-limits on a few surgeries. There's also the fact that Niva Bupa's complaints volume has been a bit of concern for prospective buyers.",
+            "link":"https://drive.google.com/file/d/1WLMQLFxMEb0Md2sC6MZ-C_j0KVn70hLy/view?usp=drive_link",
+            "contact":" 044 - 24333668"
     }, 
 
-    "caresenior" : {
-        "features" : ["Pre & Post hospitalization expenses covered", 
-            "Day Care treatments covered", 
-            "Free Health Checkups every year"], 
-        "summary" : "Care Senior is a good choice if you’re 60+, with pre-existing complications or if nobody is willing to insure you. However, if you have other alternatives, this policy could be a letdown, considering they'll make you wait 4 years before they start covering pre-existing complications. Also you won't have the full cover for certain diseases.", 
-        "link" : "https://drive.google.com/file/d/1WLylYvH9Ql-vDbLOLYDXvrMiEoae11yd/view?usp=drive_link"
-    }, 
+"caresupreme" : {
+    "features" : ["You'll never have to split the bill", 
+        "You can pick any room you like", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Full coverage even if you are forced to hospitalize at home", "Covers Alternative Medicine"], 
+    "summary" : "Care Supreme is a bargain at the price at which it's selling and while the waiting periods may seem a bit off putting considering the 4 years it mandates, you can cut this down to a mere 30 days for select conditions including Asthma, Hypertension, Diabetes, Hyperlipidimia. The only downside is that you have to tag along add-ons to unleash its true potential.", 
+    "link" : "https://drive.google.com/file/d/1UhdG9vukc-pFrkiBfh-6ynCLZLOtGH8G/view?usp=drive_link",
+    "contact":"044 - 24333664"        
+}, 
 
-    "careplusyouth" : {
-        "features" : ["You'll never have to split the bill", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Day Care treatments covered", 
-            "Special Bonus for being healthy and not claiming insurance", 
-            "Free Health Checkups every year", 
-            "Full coverage even if you are forced to hospitalize at home"], 
-        "summary" : "A complete plan for young people. Outpatient consultations, dental treatments, hefty no claim bonus, accidental death benefit, and an inflation shield to make sure your cover grows as medical costs rise, all bundled in one plan", 
-        "link" : "https://drive.google.com/file/d/1HuM97VrQ6PjgDxIQXFwflrwuehjiOg0C/view?usp=drive_link"
-    }, 
+"caresenior" : {
+    "features" : ["Pre & Post hospitalization expenses covered", 
+        "Day Care treatments covered", 
+        "Free Health Checkups every year"], 
+    "summary" : "Care Senior is a good choice if you’re 60+, with pre-existing complications or if nobody is willing to insure you. However, if you have other alternatives, this policy could be a letdown, considering they'll make you wait 4 years before they start covering pre-existing complications. Also you won't have the full cover for certain diseases.", 
+    "link" : "https://drive.google.com/file/d/1WLylYvH9Ql-vDbLOLYDXvrMiEoae11yd/view?usp=drive_link",
+    "contact":"044 - 24333664" 
+    
+}, 
 
-    "careheart" : {
-        "features" : ["Short waiting period for Pre Existing Diseases", 
-            "Some Restoration Benefit", 
-            "Day Care treatments covered", 
-            "Free Health Checkups every year", 
-            "Full coverage even if you are forced to hospitalize at home"], 
-        "summary" : "If you've had a heart complication or a surgery in the past 7 years, chances are you won't find many insurers willing to cover you. And while Care Heart isn't the most comprehensive policy, it still extends you reasonable protection. So if you're a heart patient, you should be considering this policy.", 
-        "link" : "https://drive.google.com/file/d/1GalO8U0Z7oqi4jcSRterGJj0q1s6liIR/view?usp=drive_link"
-    }, 
+"careplusyouth" : {
+    "features" : ["You'll never have to split the bill", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Day Care treatments covered", 
+        "Special Bonus for being healthy and not claiming insurance", 
+        "Free Health Checkups every year", 
+        "Full coverage even if you are forced to hospitalize at home"], 
+    "summary" : "A complete plan for young people. Outpatient consultations, dental treatments, hefty no claim bonus, accidental death benefit, and an inflation shield to make sure your cover grows as medical costs rise, all bundled in one plan", 
+    "link" : "https://drive.google.com/file/d/1HuM97VrQ6PjgDxIQXFwflrwuehjiOg0C/view?usp=drive_link",
+    "contact":"044 - 24333664" 
+}, 
 
-    "care" : {
-        "features" : ["You most likely don't have to split the bill", 
-            "You can pick a Single Private room but nothing fancy", 
-            "You always have full cover irrespective of the disease", 
-            "Pre & Post hospitalization expenses covered", 
-            "Good Restoration Benefit", 
-            "Day Care treatments covered", 
-            "Free Health Checkups every year", 
-            "Covers Alternative Medicine"], 
-        "summary" : "Care is a decent policy. It's got a few conditions, but nothing too outrageous. It covers most bases and throws in some nice benefits. However, if you have pre-existing diseases (say diabetes), they make you wait 4 years before covering these illnesses unless you pay extra and get it down to 2 years. So you might want to check other alternatives.", 
-        "link" : ""
-    }, 
+"careheart" : {
+    "features" : ["Short waiting period for Pre Existing Diseases", 
+        "Some Restoration Benefit", 
+        "Day Care treatments covered", 
+        "Free Health Checkups every year", 
+        "Full coverage even if you are forced to hospitalize at home"], 
+    "summary" : "If you've had a heart complication or a surgery in the past 7 years, chances are you won't find many insurers willing to cover you. And while Care Heart isn't the most comprehensive policy, it still extends you reasonable protection. So if you're a heart patient, you should be considering this policy.", 
+    "link" : "https://drive.google.com/file/d/1GalO8U0Z7oqi4jcSRterGJj0q1s6liIR/view?usp=drive_link",
+    "contact":"044 - 24333664" 
+}, 
 
-    "careclassic": {
-        "features" : ["You most likely don't have to split the bill", 
-            "You can pick a Single Private room but nothing fancy", 
-            "Pre & Post hospitalization expenses covered", 
-            "Unlimited Restoration Benefit", 
-            "Day Care treatments covered", 
-            "Special Bonus for being healthy and not claiming insurance", 
-            "Free Health Checkups" 
-            ], 
-        "summary" : "Care Classic is an okay policy. While it does offer some protection for people considering assisted reproductive procedures, it falls short in other departments. Most notably, it imposes restrictions on the kind of room you can pick. So in many ways, this is build for a very specific audience and isn't very appealing to the general public.", 
-        "link" : "https://drive.google.com/file/d/19R5G6TEi-UAZYBaT3u-sivsGKtN2NSIk/view?usp=drive_link"
-    }, 
+"care" : {
+    "features" : ["You most likely don't have to split the bill", 
+        "You can pick a Single Private room but nothing fancy", 
+        "You always have full cover irrespective of the disease", 
+        "Pre & Post hospitalization expenses covered", 
+        "Good Restoration Benefit", 
+        "Day Care treatments covered", 
+        "Free Health Checkups every year", 
+        "Covers Alternative Medicine"], 
+    "summary" : "Care is a decent policy. It's got a few conditions, but nothing too outrageous. It covers most bases and throws in some nice benefits. However, if you have pre-existing diseases (say diabetes), they make you wait 4 years before covering these illnesses unless you pay extra and get it down to 2 years. So you might want to check other alternatives.", 
+    "link" : "",
+    "contact":"044 - 24333664" 
 
-    "suraksha": {
-        "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Free Health Checkups every year"], 
-        "summary" : "my Health Suraksha Gold policy covers most use cases. You get a large cover (7.5 lakhs-15 lakhs) You won't have to worry about hidden T&C's. You get really comprehensive coverage. A host of benefits to go along with it. And it's a pretty good policy overall. No complaints!", 
-        "link" : "https://drive.google.com/file/d/1zNdCXkjOeIVHil_Nyeqj9UZsENImZjHu/view?usp=drive_link"
-    }, 
+}, 
 
-    "optimasecure": {
-        "features" : ["You'll never have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Covers Alternative Medicine"], 
-        "summary" : "HDFC Ergo Optima Secure Global is the second most expensive product within HDFC Ergo’s stable. It offers pretty much all the benefits offered by Optima Secure (HDFC Ergo’s best-selling insurance policy) and also covers international emergency treatments for 45 days per trip (excluding pre/post expenses). If you’re a routine traveller outside India, this could make more sense than Optima Secure. Otherwise, you can opt for other alternatives, considering the premiums you’ll be expected to pay here.", 
-        "link" : "https://drive.google.com/file/d/1EjlClYrGGH56RZoiM2fGGH4OalJKtpQJ/view?usp=drive_link"
-    }, 
+"careclassic": {
+    "features" : ["You most likely don't have to split the bill", 
+        "You can pick a Single Private room but nothing fancy", 
+        "Pre & Post hospitalization expenses covered", 
+        "Unlimited Restoration Benefit", 
+        "Day Care treatments covered", 
+        "Special Bonus for being healthy and not claiming insurance", 
+        "Free Health Checkups" 
+        ], 
+    "summary" : "Care Classic is an okay policy. While it does offer some protection for people considering assisted reproductive procedures, it falls short in other departments. Most notably, it imposes restrictions on the kind of room you can pick. So in many ways, this is build for a very specific audience and isn't very appealing to the general public.", 
+    "link" : "https://drive.google.com/file/d/19R5G6TEi-UAZYBaT3u-sivsGKtN2NSIk/view?usp=drive_link",
+    "contact":"044 - 24333664" 
+}, 
 
-    "medisure": {
-        "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Day Care treatments covered"], 
-        "summary" : "While it is a decent super top up plan, you don't really get a disproportionately large cover with myHealth Medisure. The plan allows you to top up your base policy only by about 20 lakhs tops. So if you are ever hospitalized for a rare condition, then the cover might not suffice.", 
-        "link" : "https://drive.google.com/file/d/1hE1JazjOMyfXY28vSIMTfmR82ebTZ3yV/view?usp=drive_link"
-    }, 
+"suraksha": {
+    "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Free Health Checkups every year"], 
+    "summary" : "my Health Suraksha Gold policy covers most use cases. You get a large cover (7.5 lakhs-15 lakhs) You won't have to worry about hidden T&C's. You get really comprehensive coverage. A host of benefits to go along with it. And it's a pretty good policy overall. No complaints!", 
+    "link" : "https://drive.google.com/file/d/1zNdCXkjOeIVHil_Nyeqj9UZsENImZjHu/view?usp=drive_link",
+    "contact": "044 - 24335284"
+}, 
 
-    "energy": {
-        "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Reasonable waiting period for pre-existing diseases", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Free Health Checkups every year"], 
-        "summary" : "If you're diabetic or suffering from Hypertension, then Energy is for you, considering the fact that the insurer covers all complication arising out of these chronic diseases from Day 1. However, if you aren't diabetic maybe you could look at the other options since this policy is fairly expensive.", 
-        "link" : "https://drive.google.com/file/d/1jPDEDh6w6_Uew-z6yGzEA95WLSGqgZBg/view?usp=drive_link"
-    }
+"optimasecure": {
+    "features" : ["You'll never have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Covers Alternative Medicine"], 
+    "summary" : "HDFC Ergo Optima Secure Global is the second most expensive product within HDFC Ergo’s stable. It offers pretty much all the benefits offered by Optima Secure (HDFC Ergo’s best-selling insurance policy) and also covers international emergency treatments for 45 days per trip (excluding pre/post expenses). If you’re a routine traveller outside India, this could make more sense than Optima Secure. Otherwise, you can opt for other alternatives, considering the premiums you’ll be expected to pay here.", 
+    "link" : "https://drive.google.com/file/d/1EjlClYrGGH56RZoiM2fGGH4OalJKtpQJ/view?usp=drive_link",
+    "contact": "044 - 24335284"
+}, 
+
+"medisure": {
+    "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Pre & Post hospitalization expenses covered", "Day Care treatments covered"], 
+    "summary" : "While it is a decent super top up plan, you don't really get a disproportionately large cover with myHealth Medisure. The plan allows you to top up your base policy only by about 20 lakhs tops. So if you are ever hospitalized for a rare condition, then the cover might not suffice.", 
+    "link" : "https://drive.google.com/file/d/1hE1JazjOMyfXY28vSIMTfmR82ebTZ3yV/view?usp=drive_link",
+    "contact": "044 - 24335284"
+}, 
+
+"energy": {
+    "features" : ["You most likely don't have to split the bill", "You can pick any room you like", "You always have full cover irrespective of the disease", "Reasonable waiting period for pre-existing diseases", "Pre & Post hospitalization expenses covered", "Good Restoration Benefit", "Day Care treatments covered", "Free Health Checkups every year"], 
+    "summary" : "If you're diabetic or suffering from Hypertension, then Energy is for you, considering the fact that the insurer covers all complication arising out of these chronic diseases from Day 1. However, if you aren't diabetic maybe you could look at the other options since this policy is fairly expensive.", 
+    "link" : "https://drive.google.com/file/d/1jPDEDh6w6_Uew-z6yGzEA95WLSGqgZBg/view?usp=drive_link",
+    "contact": "044 - 24335284"
+}
 }

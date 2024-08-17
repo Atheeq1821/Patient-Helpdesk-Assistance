@@ -211,115 +211,9 @@ def insurer_login(request):
     return redirect('homepage:index')
 
 
-
-def signup(request):
-    if request.method=='POST':
-        name=request.POST.get('fullname')
-        email=request.POST.get('email')
-        age=request.POST.get('age')
-        password=request.POST.get('pass')
-        gender=request.POST.get('options')
-        phone=request.POST.get('phone')
-        pincode=request.POST.get('pincode')
-        insurer=request.POST.get('insurer')
-        policyname=request.POST.get('policyname')
-        policytype=request.POST.get('policytype')
-        startdate=request.POST.get('startdate')
-        duration=request.POST.get('duration')
-        premium=request.POST.get('premium')
-        amt=request.POST.get('amt')
-        if Profile.objects.filter(user__email=email).exists():
-            context = {
-                'signup_error_message': 'Invalid email or password.'}
-            return render(request, 'index.html', context)
-        else:
-            user = User.objects.create_user(username=name, email=email, password=password)
-            Profile.objects.create(
-                user=user,
-                name=name,
-                age=int(age),
-                gender=gender,
-                phone=phone,
-                pincode=pincode,
-                insurer=insurer,
-                policy_name=policyname,
-                plan_type=policytype,
-                policy_start_date=parse_date(startdate),
-                duration=int(duration),
-                premium_monthly=premium,
-                total_amount=amt,
-            )
-            login(request, user)
-            return redirect('homepage:home')  
-    return redirect('homepage:signup')
-
-
 def claim_view(curr):  #view to list all the claims made by the user
     claims = Claim.objects.filter(user=curr.user)
     return claims
-
-def create_claim(request):
-    if request.method == 'POST':
-        claim_date = request.POST.get('claim_date')
-        amount_claimed = request.POST.get('amount_claimed')
-        treatment_info = request.POST.get('treatment_info')
-        user_input = request.POST.get('user_input')
-        
-
-        claim = Claim(
-            claim_date=claim_date,
-            user=request.user,
-            amount_claimed=amount_claimed,
-            treatment_info=treatment_info
-        )
-        claim.save()
-        claim_history=claim_view(request)
-        claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
-        user = request.user
-        profile=user.profile
-        expiry = get_balance_date(start=profile.policy_start_date, dur=profile.duration)
-        request.session['user_summary'] = get_user_summary(
-            name=profile.name,
-            age=profile.age,
-            policy=profile.policy_name,
-            type=profile.plan_type,
-            gender=profile.gender,
-            claims=claims_summary,
-            policy_start_date=profile.policy_start_date,
-            premium=profile.premium_monthly,
-            amt=profile.total_amount,
-            expiry=expiry)
-        print(f"Summary from create claim {request.session['user_summary']}")
-        return redirect('homepage:home')
-    return redirect('homepage:home')
-
-def delete_claim(request, claim_id):
-    if request.method == 'POST':
-        claim = get_object_or_404(Claim, pk=claim_id)
-        claim.delete()
-        user=request.user
-        profile=user.profile
-
-        #making new user_summary since claim history got deleted
-
-        claim_history=claim_view(request)
-        claims_summary,claimable_amt = get_claim_summary(request,claim_history=claim_history)
-        expiry = get_balance_date(start=profile.policy_start_date, dur=profile.duration)
-        request.session['user_summary'] = get_user_summary(
-            name=profile.name,
-            age=profile.age,
-            policy=profile.policy_name,
-            type=profile.plan_type,
-            gender=profile.gender,
-            claims=claims_summary,
-            policy_start_date=profile.policy_start_date,
-            premium=profile.premium_monthly,
-            amt=profile.total_amount,
-            expiry=expiry)
-        print(f"Sumamry form delete  : {request.session['user_summary']}")
-    return redirect('homepage:home')  
-
-
 
 
 @login_required
@@ -354,7 +248,7 @@ def home(request):
         policy_json_data = json.load(file)
     policy_details=policy_json_data[profile.policy_name] 
     summary=policy_details['summary']
-
+    contact = policy_details['contact']
 
     #extracting policy features form json file
     FEATURE_JSON_PATH = os.path.join(settings.BASE_DIR, 'data','json_data','feature.json')
@@ -380,7 +274,8 @@ def home(request):
             policy_start_date=profile.policy_start_date,
             premium=profile.premium_monthly,
             amt=profile.total_amount,
-            expiry=expiry)
+            expiry=expiry,
+            contact=contact)
         
     context = {
         'name': name,

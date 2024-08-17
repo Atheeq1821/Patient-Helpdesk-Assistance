@@ -10,7 +10,7 @@ groq_api = os.getenv('GROQ_API_KEY')
 
 model_name = "sentence-transformers/all-mpnet-base-v2"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
-def denial_assist(user_details,policy_name,user_denial):
+def denial_assist(policy_name,user_denial,profile_summary):
 
     client = Groq(
         api_key=groq_api,
@@ -22,15 +22,11 @@ def denial_assist(user_details,policy_name,user_denial):
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful assistant.I will feed you with all the details regarding denial and the policy along with user profile summary. User will provide the claim denial reason briefly. You are supposed to match the user's denial reason and the provided content, and you have to eloborately explain the main possible reasons for claim denial based on the user profile after that explain the claim denial reason completely along with the resolution steps with html tags",
-            },
-            {
-                "role": "system",
-                "content": " Important to note! : Must format the output in HTML with appropriate tags like <h4>, <p>, <ul>, and <li>.",
+                "content": "You are a helpful assistant.I will feed you with all the details regarding denial and the policy along with user profile summary. User will provide the claim denial reason briefly. You are supposed to match the user's denial reason and the provided content, and you have to eloborately explain the main possible reasons for claim denial based on the user profile after that explain the claim denial reason completely along with the resolution steps.",
             },
             {
                 "role":"system",
-                "content":"User profile summary: \n"+user_details
+                "content":"User profile summary: \n"+profile_summary
             },
             {
                 "role":"system",
@@ -48,5 +44,7 @@ def denial_assist(user_details,policy_name,user_denial):
         model="llama-3.1-70b-versatile",
     )
     output=chat_completion.choices[0].message.content
-    return output
+    print(output)
+    formatted_output  = format_output(output)
+    return formatted_output
 

@@ -13,13 +13,13 @@ def assistant(request):
         request.session['conversation_history'] = []
     if request.method == 'POST':
         form = ChatForm(request.POST)
-        print("form loadede")
         if form.is_valid():
             user_input = form.cleaned_data['user_input']
             user = request.user
             profile = user.profile
             conversation_history = request.session['conversation_history']
-            model_output=query_assist(user_query=user_input,policy_name=profile.policy_name,conversation_history=conversation_history)
+            p_summary = request.session['user_summary']
+            model_output=query_assist(user_query=user_input,policy_name=profile.policy_name,conversation_history=conversation_history,profile_summary=p_summary)
             
             conversation_history.append({
                 'user': user_input,
@@ -43,8 +43,8 @@ def denial(request):
         user = request.user
         profile=user.profile
         user_reason=request.POST.get('reason')
-        user_details=request.session['user_summary']
-        model_output=denial_assist(user_details=user_details,policy_name=profile.policy_name,user_denial=user_reason)
+        p_summary = request.session['user_summary']
+        model_output=denial_assist(policy_name=profile.policy_name,user_denial=user_reason,profile_summary=p_summary)
         safe_output = mark_safe(model_output)
         return render(request,'denial.html',{'output':safe_output})
     
