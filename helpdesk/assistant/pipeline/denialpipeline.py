@@ -22,7 +22,7 @@ def denial_assist(user_details,policy_name,user_denial):
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful assistant.I will feed you with all the details regarding denial and the policy along with user profile summary. User will provide the claim denial reason briefly. You are supposed to match the user's denial reason and the provided content, and you have to eloborately explain the main possible reasons for claim denial based on the user profile after that explain the claim denial reason completely along with the resolution steps with html tags",
+                "content": "When a user provides a brief reason for their claim denial, match it with the provided information, elaborate on the main possible reasons based on the user's profile, and fully explain the specific claim denial reason along with resolution steps using appropriate HTML tags."
             },
             {
                 "role": "system",
@@ -32,17 +32,21 @@ def denial_assist(user_details,policy_name,user_denial):
                 "role":"system",
                 "content":"User profile summary: \n"+user_details
             },
-            {
-                "role":"system",
-                "content":"General details about handling denials: \n"+denial_content
-            },
+            # {
+            #     "role":"system",
+            #     "content":"General details about handling denials: \n"+denial_content
+            # },
             {
                 "role":"system",
                 "content":"All the content about the user policy: \n"+policy_content
             },
             {
                 "role":"user",
-                "content":"User denial reason "+user_denial
+                "content":"User denial reason "+user_denial   
+            },
+            {
+                "role":"user",
+                "contact":"The customer service number"
             }
         ],
         model="llama-3.1-70b-versatile",

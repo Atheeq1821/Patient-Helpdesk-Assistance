@@ -15,7 +15,7 @@ embeddings = HuggingFaceEmbeddings(model_name=model_name)
 CHROMA_PATH='chroma\policies'
 # CHROMA_PATH='chroma\policies'
 
-def query_assist(user_query,policy_name,conversation_history):
+def query_assist(user_query,policy_name,conversation_history,profile_summary):
     query_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings,collection_name=policy_name)
     results = query_db.similarity_search_with_score(user_query, k=4)  #retriving relevant dpcuments from database
     context = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
@@ -38,6 +38,10 @@ def query_assist(user_query,policy_name,conversation_history):
             {
                 "role":"system",
                 "content":context
+            },
+            {
+                "role":"system",
+                "content":f"User summary : "+profile_summary
             },
             {
                 "role": "user",

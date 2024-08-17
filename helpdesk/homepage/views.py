@@ -126,7 +126,6 @@ def create_claim(request):
             premium=profile.premium_monthly,
             amt=profile.total_amount,
             expiry=expiry)
-        print(f"Summary from create claim {request.session['user_summary']}")
         return redirect('homepage:home')
     return redirect('homepage:home')
 
@@ -153,7 +152,6 @@ def delete_claim(request, claim_id):
             premium=profile.premium_monthly,
             amt=profile.total_amount,
             expiry=expiry)
-        print(f"Sumamry form delete  : {request.session['user_summary']}")
     return redirect('homepage:home')  
 
 
@@ -162,13 +160,10 @@ def delete_claim(request, claim_id):
 @login_required
 def home(request):
     if 'user_summary' not in request.session:  #user summary creation
-        print("inside session creation")
         request.session['user_summary'] = ""
     user = request.user
     hospital_list=[]
     profile = user.profile
-
-    print(f" Inside main - {request.session['user_summary']}")
     #network hospitals ->  helpdesk/utils.py
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
@@ -191,6 +186,7 @@ def home(request):
         policy_json_data = json.load(file)
     policy_details=policy_json_data[profile.policy_name] 
     summary=policy_details['summary']
+    contact = policy_details['contact']
 
 
     #extracting policy features form json file
@@ -217,7 +213,8 @@ def home(request):
             policy_start_date=profile.policy_start_date,
             premium=profile.premium_monthly,
             amt=profile.total_amount,
-            expiry=expiry)
+            expiry=expiry,
+            contact=contact)
         
     context = {
         'name': name,
@@ -234,7 +231,6 @@ def home(request):
         'policy_link': policy_details['link']
 
     }
-    # print(f"Summary form home {request.session['user_summary']}")
     return render(request,"home.html",context)
 
 
@@ -259,6 +255,7 @@ def network_hospitals(request): #network hospitals view
 
 
 from django.utils.safestring import mark_safe
+
 def renew(request):   #view for renew bonus page 
     user = request.user
     profile=user.profile
