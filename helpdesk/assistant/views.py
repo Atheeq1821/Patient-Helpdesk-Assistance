@@ -18,7 +18,8 @@ def assistant(request):
             user = request.user
             profile = user.profile
             conversation_history = request.session['conversation_history']
-            model_output=query_assist(user_query=user_input,policy_name=profile.policy_name,conversation_history=conversation_history)
+            p_summary = request.session['user_summary']
+            model_output=query_assist(user_query=user_input,policy_name=profile.policy_name,conversation_history=conversation_history,profile_summary=p_summary)
             
             conversation_history.append({
                 'user': user_input,

@@ -7,6 +7,7 @@ from mysql.connector import Error
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from homepage.models import Claim
+from helpdesk.llm_utils import format_output
 
 
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
@@ -77,11 +78,11 @@ def get_renew_details(policy_name,user_details):
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful health insurance patient helpdesk bot.You are approprite renewal bonuses content from policy document.User will provide their profile summary based on the summary and the content, Explain the renewal bonuses for the user with html tags.",
+                "content": "You are a helpful health insurance patient helpdesk bot.You are approprite renewal bonuses content from policy document.User will provide their profile summary based on the summary and the content, Explain the renewal bonuses for the user.",
             },
             {
                 "role":"system",
-                "content":" Important to note! : Must format the output in HTML with appropriate tags like <h4>, <p>, <ul>, and <li>. Only explain the bonuses. Dont add unwanted texts like 'based on the details' , 'i will explain'"
+                "content":"Start your output with 'Based on your policy details you are eligible for' and provide your content"
             },
             {
                 "role":"system",
@@ -92,10 +93,11 @@ def get_renew_details(policy_name,user_details):
                 "content": user_details,
             },
         ],
-        model="llama-3.1-70b-versatile",
+        model="mixtral-8x7b-32768",
     )
     output=chat_completion.choices[0].message.content
-    return output
+    formated_output = format_output(llm_output=output)
+    return formated_output
 
 
 

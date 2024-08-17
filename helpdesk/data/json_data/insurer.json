@@ -1,0 +1,38 @@
+{
+    "bajajallianz" : ["Health Guard Silver", 
+        "Health Guard Gold", 
+        "Health Guard Platinum", 
+        "Health Care Supreme Vital", 
+        "Health Care Supreme Smart", 
+        "Health Care Supreme Ultimo", 
+        "Health Ensure Family Plan"
+        ], 
+
+    "care" : ["Care Supreme", 
+        "Care Senior", 
+        "Care Plus Youth", 
+        "Care Advantage",
+        "Care Heart", 
+        "Care Classic", 
+        "Care"
+    ], 
+
+    "hdfc" : ["myHealth Suraksha Gold", 
+        "Energy Silver", 
+        "Optima Secure Global Plus", 
+        "myHealth Suraksha Platinum", 
+        "myHealth Suraksha Silver"
+    ], 
+
+    "nivabupa" : ["Aspire Gold +", 
+        "GoActive", 
+        "Health Companion", 
+        "Health premia Platinum", 
+        "Health Pulse Classic", 
+        "Health Recharge Super Top-up", 
+        "HealthBeat Gold", 
+        "ReAssure 2.0 Titanium+", 
+        "ReAssure 2.0 Platinum+",
+        "Senior First Gold"
+    ]
+}
