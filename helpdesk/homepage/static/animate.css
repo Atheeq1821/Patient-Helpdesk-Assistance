@@ -27,3 +27,8 @@
     opacity: 1;
     transform: translate(0px);
   }
+
+
+  .cts img{
+    width: 145px;
+  }

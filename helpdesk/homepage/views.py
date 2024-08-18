@@ -117,7 +117,7 @@ def generate_users():
     ]
     start_date = datetime(2020, 1, 1)
     end_date = datetime.now()
-    for i in range(6,100):
+    for i in range(100):
         username = names[i]
         e_n=username.lower()
         email = f"{e_n}@gmail.com"

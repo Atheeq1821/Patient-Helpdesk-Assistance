@@ -54,6 +54,7 @@ function filterUserID() {
 function filterpolicyname() {
     // document.body.classList.add('cursor-loading');
     var policy_name= document.getElementById('filterpolicy').value;
+
     fetch("/insurer/filter_policy_name/", {
         method: 'POST',
         headers: {
