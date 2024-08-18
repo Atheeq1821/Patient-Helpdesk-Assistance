@@ -273,8 +273,6 @@ def home(request):
             amt=profile.total_amount,
             expiry=expiry,
             contact=contact)
-            expiry=expiry,
-            contact=contact)
         
     context = {
         'name': name,
