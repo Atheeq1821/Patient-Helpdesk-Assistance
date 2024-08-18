@@ -28,17 +28,21 @@ def denial_assist(policy_name,user_denial,profile_summary):
                 "role":"system",
                 "content":"User profile summary: \n"+profile_summary
             },
-            {
-                "role":"system",
-                "content":"General details about handling denials: \n"+denial_content
-            },
+            # {
+            #     "role":"system",
+            #     "content":"General details about handling denials: \n"+denial_content
+            # },
             {
                 "role":"system",
                 "content":"All the content about the user policy: \n"+policy_content
             },
             {
                 "role":"user",
-                "content":"User denial reason "+user_denial
+                "content":"User denial reason "+user_denial   
+            },
+            {
+                "role":"user",
+                "contact":"The customer service number"
             }
         ],
         model="llama-3.1-70b-versatile",

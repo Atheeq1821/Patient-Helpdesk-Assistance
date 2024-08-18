@@ -219,13 +219,10 @@ def claim_view(curr):  #view to list all the claims made by the user
 @login_required
 def home(request):
     if 'user_summary' not in request.session:  #user summary creation
-        print("inside session creation")
         request.session['user_summary'] = ""
     user = request.user
     hospital_list=[]
     profile = user.profile
-
-    print(f" Inside main - {request.session['user_summary']}")
     #network hospitals ->  helpdesk/utils.py
     hospitals = Hospitals()
     hospital_list=hospitals.network_hospitals(table_name=profile.insurer,pincode=profile.pincode)
@@ -276,6 +273,8 @@ def home(request):
             amt=profile.total_amount,
             expiry=expiry,
             contact=contact)
+            expiry=expiry,
+            contact=contact)
         
     context = {
         'name': name,
@@ -292,7 +291,6 @@ def home(request):
         'policy_link': policy_details['link']
 
     }
-    # print(f"Summary form home {request.session['user_summary']}")
     return render(request,"home.html",context)
 
 
@@ -317,6 +315,7 @@ def network_hospitals(request): #network hospitals view
 
 
 from django.utils.safestring import mark_safe
+
 def renew(request):   #view for renew bonus page 
     user = request.user
     profile=user.profile
