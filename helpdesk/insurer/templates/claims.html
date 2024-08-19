@@ -26,11 +26,11 @@
             <div class="filter_div">
                 <div>
                     <input type="text" placeholder="Search with user id" name="filteruser" id="filteruser"/>
-                    <button id="filterBtn" onclick="filterUserID()">Filter</button>
+                    <button id="filterBtn" onclick="filterUserID()">Search</button>
                 </div>
                 <div>
                     <input type="text" placeholder="Search by policy Name" name="filterpolicy" id="filterpolicy"/>
-                    <button id="filterBtn" onclick="filterpolicyname()">Filter</button>
+                    <button id="filterBtn" onclick="filterpolicyname()">Search</button>
                 </div>
             </div>
             <table class="utable">
@@ -52,4 +52,5 @@
         const csrfToken = "{{ csrf_token }}";
     </script>
     <script src="{% static 'claim.js' %}"></script>
+    <script src="{% static 'common.js' %}"></script>
 </html>
