@@ -11,7 +11,6 @@ groq_api = os.getenv('GROQ_API_KEY')
 model_name = "sentence-transformers/all-mpnet-base-v2"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 def denial_assist(policy_name,user_denial,profile_summary):
-
     client = Groq(
         api_key=groq_api,
     )
@@ -22,7 +21,11 @@ def denial_assist(policy_name,user_denial,profile_summary):
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful assistant.I will feed you with all the details regarding denial and the policy along with user profile summary. User will provide the claim denial reason briefly. You are supposed to match the user's denial reason and the provided content, and you have to eloborately explain the main possible reasons for claim denial based on the user profile after that explain the claim denial reason completely along with the resolution steps.",
+                "content": "You are a friendly helpful health insurance assistant.I will feed you with all the details regarding denial and the policy along with user profile summary. User will provide the claim denial reason briefly. You are supposed to match the user's denial reason and the provided content, and you have to eloborately explain the main possible reasons for claim denial based on the user profile after that explain the claim denial reason completely along with the resolution steps.",
+            },
+            {
+                "role":"system",
+                "content":"Dont include content like 'based on the user summary and policy detail provided' or similar content"
             },
             {
                 "role":"system",
@@ -39,10 +42,6 @@ def denial_assist(policy_name,user_denial,profile_summary):
             {
                 "role":"user",
                 "content":"User denial reason "+user_denial   
-            },
-            {
-                "role":"user",
-                "contact":"The customer service number"
             }
         ],
         model="llama-3.1-70b-versatile",
