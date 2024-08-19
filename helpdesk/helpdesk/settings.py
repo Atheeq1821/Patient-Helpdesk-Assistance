@@ -23,6 +23,9 @@ SECRET_KEY = "django-insecure-gu^ay2^zv!70yc!87-oyykduoa1&n6w1ez_6w05u&6(j!!o-u_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 ALLOWED_HOSTS = ['helpdesk-assistance-g6bhd0d7dyhcaua2.eastus-01.azurewebsites.net','*']
 # Application definition
@@ -78,9 +81,9 @@ WSGI_APPLICATION = "helpdesk.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
