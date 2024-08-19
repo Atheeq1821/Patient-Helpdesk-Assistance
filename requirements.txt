@@ -13,3 +13,5 @@ mysql.connector
 groq
 MySQL
 python-dotenv
+pysqlite3
+pysqlite3-binary
