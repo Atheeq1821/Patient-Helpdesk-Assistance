@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-gu^ay2^zv!70yc!87-oyykduoa1&n6w1ez_6w05u&6(j!!o-u_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['helpdesk-assistance-g6bhd0d7dyhcaua2.eastus-01.azurewebsites.net','*']
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -125,7 +125,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assistant/static'),
     os.path.join(BASE_DIR, 'insurer/static'),
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
